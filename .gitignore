@@ -1,0 +1,38 @@
+# Local game data and dumps (never commit by default)
+/game/
+/game-data/
+/game_dump/
+/dumps/
+/originals/
+/extracted/
+
+# Generated output
+/build/
+/dist/
+/out/
+/reports/
+/renders/
+/cache/
+/tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
