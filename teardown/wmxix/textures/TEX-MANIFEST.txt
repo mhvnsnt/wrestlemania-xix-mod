@@ -1,0 +1,43 @@
+00: bg/00.tex (665920 B) -> 75 PNGs from 77 entries
+01: NO .tex companion
+02: bg/02.tex (687264 B) -> 54 PNGs from 56 entries
+add_x8: NO .tex companion
+0_0: bg/bs/0_0.tex (529952 B) -> 63 PNGs from 63 entries
+0_0_ad2: NO .tex companion
+0_1: bg/bs/0_1.tex (390336 B) -> 66 PNGs from 67 entries
+0_1_ad2: NO .tex companion
+0_2: bg/bs/0_2.tex (613600 B) -> 73 PNGs from 73 entries
+0_2_ad2: NO .tex companion
+0_3: bg/bs/0_3.tex (683520 B) -> 69 PNGs from 69 entries
+0_3_ad2: NO .tex companion
+1_0: bg/bs/1_0.tex (810176 B) -> 63 PNGs from 63 entries
+1_0_ad2: NO .tex companion
+1_1: bg/bs/1_1.tex (663264 B) -> 76 PNGs from 76 entries
+1_1_ad2: NO .tex companion
+1_2: bg/bs/1_2.tex (663264 B) -> 76 PNGs from 76 entries
+1_2_ad2: NO .tex companion
+1_3: bg/bs/1_3.tex (663264 B) -> 76 PNGs from 76 entries
+1_3_ad2: NO .tex companion
+1_4: bg/bs/1_4.tex (663264 B) -> 76 PNGs from 76 entries
+1_4_ad2: NO .tex companion
+2_0: bg/bs/2_0.tex (523840 B) -> 109 PNGs from 109 entries
+2_0_ad: NO .tex companion
+2_0_ad2: NO .tex companion
+2_1: bg/bs/2_1.tex (525984 B) -> 110 PNGs from 110 entries
+2_1_ad2: NO .tex companion
+2_2: bg/bs/2_2.tex (689952 B) -> 98 PNGs from 98 entries
+2_2_ad2: NO .tex companion
+5_0: bg/bs/5_0.tex (69856 B) -> 2 PNGs from 2 entries
+5_1: bg/bs/5_1.tex (213792 B) -> 8 PNGs from 8 entries
+c_mat: NO .tex companion
+dummy_x8: NO .tex companion
+eff_x8: NO .tex companion
+f01: bg/f01.tex (52128 B) -> 4 PNGs from 4 entries
+gt_x8: NO .tex companion
+kaijo_x8: bg/kaijo_x8.tex (698432 B) -> 55 PNGs from 55 entries
+mat: NO .tex companion
+post: NO .tex companion
+ring: bg/ring.tex (282976 B) -> 14 PNGs from 14 entries
+s2_ad2: NO .tex companion
+scr_wm: NO .tex companion
+scr_x8: NO .tex companion
