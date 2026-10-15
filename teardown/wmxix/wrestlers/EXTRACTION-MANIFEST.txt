@@ -1,0 +1,169 @@
+000 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+001 var0: 10 batches, 424 verts, 297 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+001 var1: 8 batches, 395 verts, 277 tris
+002 var0: 13 batches, 598 verts, 385 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+002 var1: 10 batches, 440 verts, 283 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+003 var2: DUMY placeholder file (54848 B) - no mesh
+003 var0: 8 batches, 191 verts, 147 tris [note: 4 batch(es) med-dist>800 (separator/degen candidates)]
+003 var1: 8 batches, 285 verts, 229 tris
+004 var0: 17 batches, 425 verts, 300 tris [note: 3 batch(es) med-dist>800 (separator/degen candidates)]
+004 var1: 18 batches, 414 verts, 304 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+005 var2: DUMY placeholder file (36392 B) - no mesh
+005 var0: 15 batches, 441 verts, 331 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+005 var1: 15 batches, 441 verts, 331 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+006 var0: 15 batches, 348 verts, 268 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+006 var1: 15 batches, 348 verts, 268 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+007 var0: 18 batches, 445 verts, 286 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+007 var1: 16 batches, 442 verts, 277 tris
+008 var0: 13 batches, 351 verts, 239 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+008 var1: 16 batches, 577 verts, 408 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+009 var0: 10 batches, 423 verts, 317 tris
+009 var1: 10 batches, 423 verts, 317 tris
+009 var2: 4 batches, 273 verts, 212 tris
+009 var3: 4 batches, 273 verts, 212 tris
+010 var0: 14 batches, 473 verts, 367 tris
+010 var1: 14 batches, 485 verts, 373 tris
+011 var2: DUMY placeholder file (9756 B) - no mesh
+011 var0: 10 batches, 362 verts, 245 tris [identical: 1]
+012 var0: 11 batches, 400 verts, 308 tris
+012 var1: 14 batches, 481 verts, 363 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+013 var0: 12 batches, 407 verts, 280 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+013 var1: 12 batches, 407 verts, 280 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+014 var2: DUMY placeholder file (29672 B) - no mesh
+014 var0: 13 batches, 457 verts, 367 tris
+014 var1: 11 batches, 313 verts, 236 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+015 var0: 14 batches, 439 verts, 312 tris
+015 var1: 14 batches, 413 verts, 294 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+016 var0: 9 batches, 396 verts, 290 tris
+016 var1: 10 batches, 401 verts, 311 tris
+017 var0: 10 batches, 156 verts, 127 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+017 var1: 14 batches, 400 verts, 317 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+017 var2: 3 batches, 272 verts, 161 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+018 var0: 7 batches, 418 verts, 346 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+018 var1: 7 batches, 418 verts, 346 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+019 var0: 12 batches, 433 verts, 343 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+019 var1: 10 batches, 311 verts, 235 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+020 var0: 17 batches, 419 verts, 343 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+020 var1: 14 batches, 450 verts, 362 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+021: NO YMG FILES
+022 var0: 12 batches, 464 verts, 361 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+022 var1: 18 batches, 499 verts, 381 tris [note: 4 batch(es) med-dist>800 (separator/degen candidates)]
+023 var2: DUMY placeholder file (29952 B) - no mesh
+023 var0: 8 batches, 451 verts, 316 tris
+023 var1: 9 batches, 449 verts, 295 tris
+024 var2: DUMY placeholder file (21212 B) - no mesh
+024 var0: 13 batches, 617 verts, 423 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+024 var1: 7 batches, 185 verts, 159 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+025 var0: 9 batches, 411 verts, 333 tris
+025 var1: 10 batches, 436 verts, 351 tris
+026 var0: 12 batches, 337 verts, 264 tris
+026 var1: 12 batches, 337 verts, 264 tris
+027 var2: DUMY placeholder file (9476 B) - no mesh
+027 var0: 12 batches, 513 verts, 364 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+027 var1: 10 batches, 506 verts, 369 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+028 var0: 14 batches, 387 verts, 266 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+028 var1: 14 batches, 387 verts, 266 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+029 var2: DUMY placeholder file (27468 B) - no mesh
+029 var0: 7 batches, 364 verts, 303 tris [identical: 1]
+030 var0: 15 batches, 481 verts, 384 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+030 var1: 17 batches, 505 verts, 360 tris [note: 3 batch(es) med-dist>800 (separator/degen candidates)]
+031 var0: 16 batches, 488 verts, 369 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+031 var1: 17 batches, 515 verts, 390 tris [note: 3 batch(es) med-dist>800 (separator/degen candidates)]
+032 var2: DUMY placeholder file (10068 B) - no mesh
+032 var0: 7 batches, 330 verts, 255 tris
+032 var1: 10 batches, 320 verts, 217 tris
+033 var0: 12 batches, 397 verts, 306 tris
+033 var1: 12 batches, 400 verts, 304 tris
+033 var2: 4 batches, 235 verts, 227 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)] [identical: 3]
+034 var0: 9 batches, 473 verts, 331 tris
+034 var1: 6 batches, 321 verts, 238 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+035 var0: 6 batches, 209 verts, 150 tris
+035 var1: 15 batches, 544 verts, 415 tris [note: 5 batch(es) med-dist>800 (separator/degen candidates)]
+036 var0: 10 batches, 329 verts, 252 tris
+036 var1: 10 batches, 329 verts, 252 tris
+037 var0: 14 batches, 497 verts, 396 tris
+037 var1: 13 batches, 456 verts, 339 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+038 var0: 9 batches, 370 verts, 262 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+038 var1: 9 batches, 370 verts, 262 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+039 var0: 8 batches, 422 verts, 373 tris
+039 var1: 8 batches, 160 verts, 127 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+040 var0: 7 batches, 294 verts, 280 tris [note: 7 batch(es) med-dist>800 (separator/degen candidates)]
+040 var1: 8 batches, 203 verts, 151 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+041 var0: 10 batches, 440 verts, 318 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+041 var1: 9 batches, 409 verts, 286 tris [note: 2 batch(es) med-dist>800 (separator/degen candidates)]
+042 var0: 11 batches, 436 verts, 336 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+042 var1: 14 batches, 463 verts, 364 tris [note: 4 batch(es) med-dist>800 (separator/degen candidates)]
+043 var0: 26 batches, 637 verts, 431 tris [note: 4 batch(es) med-dist>800 (separator/degen candidates)]
+043 var1: 26 batches, 637 verts, 431 tris [note: 4 batch(es) med-dist>800 (separator/degen candidates)]
+044 var0: 13 batches, 447 verts, 351 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+044 var1: 12 batches, 448 verts, 370 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+045 var0: 10 batches, 445 verts, 378 tris
+045 var1: 10 batches, 431 verts, 335 tris
+045 var2: 3 batches, 61 verts, 55 tris [identical: 3]
+046 var0: 17 batches, 448 verts, 335 tris [note: 3 batch(es) med-dist>800 (separator/degen candidates)]
+046 var1: 13 batches, 469 verts, 443 tris [note: 12 batch(es) med-dist>800 (separator/degen candidates)]
+047 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+048 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+049 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+050 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+051 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+052 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+053 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+054 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+055 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+056 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+057 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+058 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+059 var0: 13 batches, 606 verts, 383 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)] [identical: 1]
+060: NO YMG FILES
+061: NO YMG FILES
+062: NO YMG FILES
+063: NO YMG FILES
+064: NO YMG FILES
+065: NO YMG FILES
+066: NO YMG FILES
+067: NO YMG FILES
+068: NO YMG FILES
+069: NO YMG FILES
+070: NO YMG FILES
+071: NO YMG FILES
+072: NO YMG FILES
+073: NO YMG FILES
+074: NO YMG FILES
+075: NO YMG FILES
+076: NO YMG FILES
+077: NO YMG FILES
+078: NO YMG FILES
+079: NO YMG FILES
+080: NO YMG FILES
+081 var0: 13 batches, 223 verts, 173 tris [identical: 1]
+082 var0: 14 batches, 237 verts, 165 tris [identical: 1]
+083 var0: 10 batches, 207 verts, 162 tris [identical: 1]
+084 var0: 6 batches, 225 verts, 195 tris [identical: 1]
+085 var0: 7 batches, 217 verts, 184 tris [identical: 1]
+086: NO YMG FILES
+087: NO YMG FILES
+088: NO YMG FILES
+089: NO YMG FILES
+090 var0: 5 batches, 176 verts, 158 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+091 var0: 9 batches, 215 verts, 186 tris
+092 var0: 8 batches, 212 verts, 185 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+093 var0: 9 batches, 224 verts, 194 tris
+094 var0: 10 batches, 175 verts, 140 tris
+095 var0: 25 batches, 610 verts, 480 tris [note: 3 batch(es) med-dist>800 (separator/degen candidates)]
+095 var1: 27 batches, 620 verts, 485 tris [note: 5 batch(es) med-dist>800 (separator/degen candidates)]
+096 var0: POOL-SCAN fallback, 36 pools, 3204 verts, 1832 tris [identical: 1]
+097 var0: POOL-SCAN fallback, 36 pools, 3204 verts, 1832 tris
+098: NO YMG FILES
+099 var0: 7 batches, 159 verts, 131 tris [note: 1 batch(es) med-dist>800 (separator/degen candidates)]
+100 var0: POOL-SCAN fallback, 13 pools, 540 verts, 363 tris
+101 var0: POOL-SCAN fallback, 13 pools, 540 verts, 363 tris
+102 var0: POOL-SCAN fallback, 13 pools, 540 verts, 363 tris
+103: NO YMG FILES
+104: NO YMG FILES
+105: NO YMG FILES
+106: NO YMG FILES
+107: NO YMG FILES
+108: NO YMG FILES
+109: NO YMG FILES
+110 var0: POOL-SCAN fallback, 20 pools, 4592 verts, 3198 tris

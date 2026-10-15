@@ -1,0 +1,200 @@
+[
+ {
+  "clip": "a004_0a",
+  "class": "high",
+  "ecd": [
+   0.9,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.704,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "a021_0a",
+  "class": "high",
+  "ecd": [
+   4.5,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 0.192,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "b012_0a",
+  "class": "high",
+  "ecd": [
+   -9.0,
+   73.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.742,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c139_0a",
+  "class": "high",
+  "ecd": [
+   2.2,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.731,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c140_0a",
+  "class": "high",
+  "ecd": [
+   0.0,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 2.443,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c226_0a",
+  "class": "high",
+  "ecd": [
+   0.0,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 0.06,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c102_0a",
+  "class": "high",
+  "ecd": [
+   1.8,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.729,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "d000_0a",
+  "class": "high",
+  "ecd": [
+   1.8,
+   79.9
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.698,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c",
+  "class": "high",
+  "ecd": [
+   -10.4,
+   75.7
+  ],
+  "body_len": 17.9,
+  "foot_spread": 0.267,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c004_0a",
+  "class": "default",
+  "ecd": [
+   2.7,
+   1.6
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.65,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c007_0a",
+  "class": "default",
+  "ecd": [
+   4.5,
+   -0.2
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.682,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c103_0a",
+  "class": "default",
+  "ecd": [
+   1.3,
+   0.2
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.511,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c105_0a",
+  "class": "default",
+  "ecd": [
+   1.3,
+   1.6
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.723,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c108_0a",
+  "class": "default",
+  "ecd": [
+   4.1,
+   -0.3
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.66,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c111_0a",
+  "class": "default",
+  "ecd": [
+   2.2,
+   0.2
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.719,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "c200_0a",
+  "class": "side",
+  "ecd": [
+   63.0,
+   24.5
+  ],
+  "body_len": 17.9,
+  "foot_spread": 0.671,
+  "hand_spread": 0.005
+ },
+ {
+  "clip": "FACE",
+  "class": "high",
+  "ecd": [
+   0.0,
+   79.9
+  ],
+  "body_len": null,
+  "foot_spread": null,
+  "hand_spread": null
+ },
+ {
+  "clip": "8503_0a",
+  "class": "high",
+  "ecd": [
+   3.6,
+   75.7
+  ],
+  "body_len": 17.9,
+  "foot_spread": 3.537,
+  "hand_spread": 0.005
+ }
+]

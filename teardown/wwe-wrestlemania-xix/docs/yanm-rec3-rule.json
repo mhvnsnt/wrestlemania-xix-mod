@@ -1,0 +1,27 @@
+{
+ "track": "BD5B5259",
+ "ticks": 686,
+ "r1_deg": [
+  -79.8,
+  82.8
+ ],
+ "r2_deg": [
+  0.0,
+  17.7
+ ],
+ "rules": {
+  "hold0": {
+   "mean_dev_deg": 91.05,
+   "max_dev_deg": 133.47
+  },
+  "comp1": {
+   "mean_dev_deg": 0.03,
+   "max_dev_deg": 0.03
+  },
+  "comp05": {
+   "mean_dev_deg": 45.53,
+   "max_dev_deg": 66.74
+  }
+ },
+ "best": "comp1"
+}
