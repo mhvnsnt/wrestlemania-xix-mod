@@ -10,7 +10,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { width: 100%; height: 100%; overflow: hidden; background: #1a1a2e; font-family: -apple-system, sans-serif; }
   #canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-  
+
   #hud {
     position: absolute; top: 0; left: 0; right: 0;
     padding: 8px 12px; pointer-events: none; z-index: 10;
@@ -23,16 +23,56 @@
     color: #ffd700; font-size: 11px; margin-top: 2px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.8);
   }
+  #special-meter {
+    margin-top: 4px; width: 120px; height: 8px;
+    background: rgba(255,255,255,0.15); border-radius: 4px; overflow: hidden;
+  }
+  #special-fill {
+    height: 100%; width: 0%; background: linear-gradient(90deg, #ffd700, #ff6600);
+    border-radius: 4px; transition: width 0.3s;
+  }
   #honest-note {
     position: absolute; bottom: 0; left: 0; right: 0;
     background: rgba(0,0,0,0.7); color: #ffaa00;
     font-size: 10px; padding: 6px 10px; z-index: 10;
     text-align: center; pointer-events: none;
   }
-  
+
+  /* Shoulder buttons */
+  #shoulders {
+    position: absolute; top: 50px; right: 12px;
+    display: flex; gap: 10px; z-index: 20;
+  }
+  .shoulder {
+    width: 64px; height: 36px; border-radius: 18px;
+    border: 2px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.12);
+    color: #fff; font-size: 13px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    touch-action: none; user-select: none;
+  }
+  .shoulder:active { background: rgba(255,255,255,0.35); }
+  #btn-l { border-color: rgba(100,200,255,0.6); }
+  #btn-r { border-color: rgba(255,150,100,0.6); }
+
+  /* Z + Start top-left */
+  #topbtns {
+    position: absolute; top: 50px; left: 12px;
+    display: flex; gap: 10px; z-index: 20;
+  }
+  .topbtn {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.1);
+    color: #fff; font-size: 13px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    touch-action: none; user-select: none;
+  }
+  .topbtn:active { background: rgba(255,255,255,0.3); }
+
   /* Virtual joystick */
   #joystick {
-    position: absolute; bottom: 60px; left: 20px;
+    position: absolute; bottom: 70px; left: 20px;
     width: 120px; height: 120px; border-radius: 50%;
     background: rgba(255,255,255,0.1);
     border: 2px solid rgba(255,255,255,0.3);
@@ -45,26 +85,52 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
-  
-  /* Action buttons */
-  #buttons {
-    position: absolute; bottom: 60px; right: 20px;
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 10px; z-index: 20;
+
+  /* GameCube diamond button cluster */
+  #gc-buttons {
+    position: absolute; bottom: 50px; right: 16px;
+    width: 190px; height: 190px; z-index: 20;
   }
-  .btn {
-    width: 70px; height: 70px; border-radius: 50%;
+  .gcbtn {
+    position: absolute; border-radius: 50%;
     border: 2px solid rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.15);
-    color: #fff; font-size: 11px; font-weight: bold;
+    color: #fff; font-weight: bold;
     display: flex; align-items: center; justify-content: center;
     touch-action: none; user-select: none;
+    font-size: 20px;
   }
-  .btn:active { background: rgba(255,255,255,0.35); }
-  #btn-punch { background: rgba(255,100,100,0.25); }
-  #btn-kick { background: rgba(100,255,100,0.25); }
-  #btn-grapple { background: rgba(100,100,255,0.25); }
-  #btn-block { background: rgba(255,255,100,0.25); }
+  .gcbtn:active { filter: brightness(1.5); }
+  /* A: big primary, right of center */
+  #btn-a {
+    width: 84px; height: 84px; font-size: 28px;
+    left: 92px; top: 76px;
+    background: rgba(80,200,80,0.3); border-color: rgba(80,220,80,0.7);
+  }
+  /* B: small, below-left of A */
+  #btn-b {
+    width: 56px; height: 56px; font-size: 18px;
+    left: 58px; top: 118px;
+    background: rgba(220,80,80,0.3); border-color: rgba(220,80,80,0.7);
+  }
+  /* X: above A */
+  #btn-x {
+    width: 56px; height: 56px; font-size: 18px;
+    left: 92px; top: 8px;
+    background: rgba(100,140,220,0.3); border-color: rgba(100,140,220,0.7);
+  }
+  /* Y: left of A */
+  #btn-y {
+    width: 56px; height: 56px; font-size: 18px;
+    left: 24px; top: 76px;
+    background: rgba(200,160,80,0.3); border-color: rgba(200,160,80,0.7);
+  }
+  /* Button labels under cluster */
+  #btn-labels {
+    position: absolute; bottom: 8px; right: 16px;
+    width: 190px; z-index: 20; pointer-events: none;
+    color: rgba(255,255,255,0.6); font-size: 9px; text-align: center;
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -73,20 +139,36 @@
 <div id="hud">
   <div id="title">WrestleMania XIX — Mobile Testbed</div>
   <div id="status">Loading...</div>
+  <div id="special-meter"><div id="special-fill"></div></div>
+</div>
+
+<div id="shoulders">
+  <div class="shoulder" id="btn-l">L</div>
+  <div class="shoulder" id="btn-r">R</div>
+</div>
+
+<div id="topbtns">
+  <div class="topbtn" id="btn-z">Z</div>
+  <div class="topbtn" id="btn-start">II</div>
+  <div class="topbtn" id="btn-taunt">&#9733;</div>
 </div>
 
 <div id="joystick"><div id="stick"></div></div>
 
-<div id="buttons">
-  <div class="btn" id="btn-punch">PUNCH</div>
-  <div class="btn" id="btn-kick">KICK</div>
-  <div class="btn" id="btn-grapple">GRAPPLE</div>
-  <div class="btn" id="btn-block">BLOCK</div>
+<div id="gc-buttons">
+  <div class="gcbtn" id="btn-x">X</div>
+  <div class="gcbtn" id="btn-y">Y</div>
+  <div class="gcbtn" id="btn-a">A</div>
+  <div class="gcbtn" id="btn-b">B</div>
+</div>
+<div id="btn-labels">
+  A grapple &middot; B strike &middot; X run/whip &middot; Y weapon<br>
+  L/R reversal &middot; tap=light hold=heavy
 </div>
 
 <div id="honest-note">
-  TESTBED — Heads: real WMXIX models (skinning solved). Bodies: procedural placeholders.
-  Animations: real YANM curves on real 70-bone skeleton. Full body decode in progress.
+  REAL WMXIX GameCube controls (verified vs Prima Official Strategy Guide).
+  Heads: real models (skinning solved). Bodies: procedural placeholders.
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

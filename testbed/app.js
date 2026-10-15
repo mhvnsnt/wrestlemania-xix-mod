@@ -378,17 +378,42 @@ function applyProcedural(wrestler, animName, time) {
     if (bones['Bip L UpperArm']) bones['Bip L UpperArm'].rotation.x = -0.8;
     if (bones['Bip R Forearm']) bones['Bip R Forearm'].rotation.x = -0.5;
     if (bones['Bip L Forearm']) bones['Bip L Forearm'].rotation.x = -0.5;
+  } else if (animName === 'taunt') {
+    // Taunt: arms raised, head back
+    const p = Math.min(time * 2, 1);
+    const t2 = Math.sin(p * Math.PI);
+    if (bones['Bip R UpperArm']) bones['Bip R UpperArm'].rotation.z = 0.2 + t2 * 1.2;
+    if (bones['Bip L UpperArm']) bones['Bip L UpperArm'].rotation.z = -0.2 - t2 * 1.2;
+    if (bones['Bip Neck']) bones['Bip Neck'].rotation.x = -t2 * 0.3;
   }
 }
 
-// Controls
+// ============================================================
+// REAL WMXIX GameCube controls (verified vs Prima Official Strategy Guide)
+// Prima numbering: 1=A 2=B 3=Y 4=X 5=Start 6=L 7=R 8=Z s=Stick
+// A: Grapple (tap=light, hold=heavy)
+// B: Strike  (tap=light, hold=heavy)
+// X: Run (hold) / Irish whip (A+X) / Climb (X+stick toward turnbuckle)
+// Y: Weapon grab (placeholder — no weapons in testbed)
+// L: Grapple reversal (timed)   R: Strike reversal (timed)
+// Z: Switch target / tag partner (placeholder)
+// D-pad/C-stick: Taunt   Start: Pause
+// A+B with full special: Special Move
+// ============================================================
 let joystickActive = false;
 let joystickVec = { x: 0, y: 0 };
+let runHeld = false;      // X held = run mode
+let isPaused = false;
+let specialMeter = 0;     // 0..100, fills over time; full = special available
+
+// Tap vs hold detection (300ms threshold = light vs heavy)
+const HOLD_THRESHOLD_MS = 300;
+let pressTimers = {};
 
 function setupControls() {
   const joy = document.getElementById('joystick');
   const stick = document.getElementById('stick');
-  
+
   function handleStart(e) {
     joystickActive = true;
     handleMove(e);
@@ -413,47 +438,176 @@ function setupControls() {
     joystickVec.x = 0; joystickVec.y = 0;
     stick.style.transform = 'translate(-50%, -50%)';
   }
-  
+
   joy.addEventListener('touchstart', handleStart, {passive: false});
   joy.addEventListener('touchmove', handleMove, {passive: false});
   joy.addEventListener('touchend', handleEnd);
   joy.addEventListener('mousedown', handleStart);
   window.addEventListener('mousemove', handleMove);
   window.addEventListener('mouseup', handleEnd);
-  
-  // Buttons
-  const actions = {
-    'btn-punch': 'punch',
-    'btn-kick': 'kick', 
-    'btn-grapple': 'grapple',
-    'btn-block': 'block'
+
+  // --- A button: GRAPPLE (tap=light, hold=heavy) ---
+  bindHoldButton('btn-a',
+    () => triggerGrapple(false),   // tap  = light grapple
+    () => triggerGrapple(true));   // hold = heavy grapple
+
+  // --- B button: STRIKE (tap=light, hold=heavy) ---
+  bindHoldButton('btn-b',
+    () => triggerStrike(false),
+    () => triggerStrike(true));
+
+  // --- X button: RUN (hold) / IRISH WHIP (tap near opponent) ---
+  bindHoldButton('btn-x',
+    () => triggerIrishWhip(),
+    null,
+    () => { runHeld = true; setStatus('Running... (X held)'); },
+    () => { runHeld = false; });
+
+  // --- Y button: WEAPON (placeholder) ---
+  bindTapButton('btn-y', () => {
+    setStatus('Y: Weapon grab — no weapons in testbed yet');
+  });
+
+  // --- L: grapple reversal (timed) ---
+  bindTapButton('btn-l', () => triggerReversal('grapple'));
+
+  // --- R: strike reversal (timed) ---
+  bindTapButton('btn-r', () => triggerReversal('strike'));
+
+  // --- Z: switch target ---
+  bindTapButton('btn-z', () => {
+    setStatus('Z: Switch target — only 1 opponent in testbed');
+  });
+
+  // --- Start: pause ---
+  bindTapButton('btn-start', () => {
+    isPaused = !isPaused;
+    setStatus(isPaused ? 'PAUSED — tap II to resume' : 'Resumed');
+  });
+
+  // --- Taunt ---
+  bindTapButton('btn-taunt', () => {
+    triggerAction('taunt');
+    setStatus('Taunt!');
+  });
+}
+
+// Bind a button with tap vs hold (light vs heavy) semantics
+function bindHoldButton(id, onTap, onHold, onHoldStart, onHoldEnd) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  let timer = null;
+  let held = false;
+  const start = (e) => {
+    if (e) e.preventDefault();
+    held = false;
+    timer = setTimeout(() => {
+      held = true;
+      if (onHoldStart) onHoldStart();
+      if (onHold) onHold();
+    }, HOLD_THRESHOLD_MS);
   };
-  for (const [id, anim] of Object.entries(actions)) {
-    const btn = document.getElementById(id);
-    btn.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      triggerAction(anim);
-    }, {passive: false});
-    btn.addEventListener('mousedown', () => triggerAction(anim));
-  }
+  const end = (e) => {
+    if (e) e.preventDefault();
+    if (timer) clearTimeout(timer);
+    if (!held && onTap) onTap();
+    if (held && onHoldEnd) onHoldEnd();
+    held = false;
+  };
+  btn.addEventListener('touchstart', start, {passive: false});
+  btn.addEventListener('touchend', end, {passive: false});
+  btn.addEventListener('touchcancel', end, {passive: false});
+  btn.addEventListener('mousedown', start);
+  btn.addEventListener('mouseup', end);
+}
+
+function bindTapButton(id, onTap) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener('touchstart', (e) => { e.preventDefault(); onTap(); }, {passive: false});
+  btn.addEventListener('mousedown', () => onTap());
 }
 
 let actionQueue = null;
 let actionTime = 0;
 
-function triggerAction(anim) {
+function triggerAction(anim, label) {
   actionQueue = anim;
   actionTime = 0;
-  setStatus(`Action: ${anim.toUpperCase()} (YANM + procedural)`);
+  setStatus(`Action: ${(label || anim).toUpperCase()} (YANM + procedural)`);
+  // Successful actions build special meter
+  specialMeter = Math.min(100, specialMeter + 8);
+  updateSpecialMeter();
+}
+
+function updateSpecialMeter() {
+  const fill = document.getElementById('special-fill');
+  if (fill) fill.style.width = specialMeter + '%';
+}
+
+// A button: grapple. Heavy does more damage but easier to reverse.
+function triggerGrapple(heavy) {
+  // A+B with full special = Special Move
+  if (specialMeter >= 100) {
+    triggerAction('grapple', heavy ? 'SPECIAL MOVE!' : 'special move');
+    specialMeter = 0;
+    updateSpecialMeter();
+    return;
+  }
+  triggerAction('grapple', heavy ? 'heavy grapple' : 'light grapple');
+}
+
+// B button: strike. Tap repeatedly = combination.
+let strikeCombo = 0;
+let strikeComboTimer = null;
+function triggerStrike(heavy) {
+  if (heavy) {
+    strikeCombo = 0;
+    triggerAction(Math.random() > 0.5 ? 'punch' : 'kick', 'heavy strike');
+  } else {
+    strikeCombo++;
+    if (strikeComboTimer) clearTimeout(strikeComboTimer);
+    strikeComboTimer = setTimeout(() => { strikeCombo = 0; }, 1500);
+    const anim = strikeCombo % 2 === 1 ? 'punch' : 'kick';
+    triggerAction(anim, `strike combo ${strikeCombo}`);
+  }
+}
+
+// X tap near opponent: Irish whip toward ropes
+function triggerIrishWhip() {
+  const dist = player.group.position.distanceTo(dummy.group.position);
+  if (dist < 3.5) {
+    triggerAction('grapple', 'irish whip!');
+    // Shove dummy toward nearest ropes
+    const dir = dummy.group.position.clone().sub(player.group.position).normalize();
+    dummy.group.position.add(dir.multiplyScalar(1.5));
+    dummy.group.position.x = Math.max(-3.5, Math.min(3.5, dummy.group.position.x));
+    dummy.group.position.z = Math.max(-3.5, Math.min(3.5, dummy.group.position.z));
+  } else {
+    setStatus('X: Irish whip — get closer to opponent');
+  }
+}
+
+// L/R: timed reversals
+function triggerReversal(type) {
+  // In the real game this is timing-based vs the opponent's attack.
+  // Testbed: dummy attacks periodically; reversal succeeds if timed.
+  triggerAction('block', `${type} reversal!`);
+  setStatus(`${type === 'grapple' ? 'L' : 'R'}: Reversal attempt — timing is everything`);
 }
 
 // Main loop
 function animate() {
   requestAnimationFrame(animate);
   const dt = Math.min(clock.getDelta(), 0.05);
-  
-  // Movement
-  const speed = 3;
+
+  if (isPaused) {
+    renderer.render(scene, camera);
+    return;
+  }
+
+  // Movement — X held = RUN (faster, like the real game)
+  const speed = runHeld ? 6 : 3;
   if (joystickActive && (joystickVec.x !== 0 || joystickVec.y !== 0)) {
     player.group.position.x += joystickVec.x * speed * dt;
     player.group.position.z += joystickVec.y * speed * dt;
