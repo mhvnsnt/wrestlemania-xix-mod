@@ -7,8 +7,10 @@ A clean workspace for research, tooling, and user-created mods for **WrestleMani
 - [x] Repository located and verified
 - [x] Project scope and safe asset-handling notes
 - [ ] Identify game archive/container formats from user-provided files
-- [ ] Build a read-only inventory/report tool
+- [x] Build a read-only inventory/report tool
+- [x] Add read-only signature inspection and candidate YDSP scan
 - [ ] Add format-specific extract/replace tools only after formats are verified
+- [ ] Run and verify tests in the repository's CI
 - [ ] Test on backups and document reproducible steps
 
 ## Layout
