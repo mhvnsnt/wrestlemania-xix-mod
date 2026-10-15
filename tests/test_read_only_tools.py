@@ -17,7 +17,7 @@ class ReadOnlyToolsTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "sample"
         self.root.mkdir()
-        (self.root / "sample.bin").write_bytes(b"YDSP\\x00\\x01test")
+        (self.root / "sample.bin").write_bytes(b"YDSP\x00\x01test")
         nested = self.root / "nested"
         nested.mkdir()
         (nested / "note.txt").write_text("hello", encoding="utf-8")
@@ -76,7 +76,7 @@ class ReadOnlyToolsTests(unittest.TestCase):
         before = sample.read_bytes()
         result = self.run_tool("scan_ydsp.py", str(self.root))
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertIn("audio.bin\\t0x0\\t12\\tIN_BOUNDS", result.stdout)
+        self.assertIn("audio.bin\t0x0\t12\tIN_BOUNDS", result.stdout)
         self.assertIn("candidate(s)", result.stdout)
         self.assertEqual(sample.read_bytes(), before)
         self.assert_sources_unchanged()
