@@ -7,11 +7,20 @@
 Examples:
 
 ```bash
-python tools/inventory_files.py /path/to/a/working-copy --format csv --output /tmp/wm19-inventory.csv
-python tools/inventory_files.py /path/to/a/working-copy --format json --output /tmp/wm19-inventory.json
+python tools/inventory_files.py /path/to/working-copy --format csv --output /tmp/wm19-inventory.csv
+python tools/inventory_files.py /path/to/working-copy --format json --output /tmp/wm19-inventory.json
 ```
 
-Use a working copy or a folder containing only files you are authorized to inspect. Write the report outside the scanned directory so a prior report does not become an inventory input.
+## Read-only signature inspection
+
+`inspect_signatures.py` prints file size, a short hexadecimal prefix, and an ASCII approximation. This helps compare file signatures without extracting or changing anything.
+
+```bash
+python tools/inspect_signatures.py /path/to/working-copy --limit 100
+python tools/inspect_signatures.py /path/to/working-copy --bytes 64
+```
+
+Write reports outside the scanned directory so report files do not become input files on later scans. Use a working copy or a folder containing only files you are authorized to inspect.
 
 ## Planned tool order
 
@@ -20,4 +29,4 @@ Use a working copy or a folder containing only files you are authorized to inspe
 3. Extraction for confirmed formats
 4. Replacement and repacking with round-trip tests
 
-Do not add a format-specific tool merely because it worked for a different game. Each tool should include usage, supported versions, test fixtures that are safe to redistribute, and failure/rollback behavior.
+See [FORMAT-RESEARCH.md](../docs/FORMAT-RESEARCH.md) for game-specific leads and confidence levels. Do not add a format-specific tool merely because it worked for a different game. Each tool should include usage, supported versions, safe test fixtures, and failure/rollback behavior.
