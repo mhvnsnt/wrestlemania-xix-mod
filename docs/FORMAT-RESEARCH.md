@@ -29,6 +29,15 @@ GameCube File Tools (GCFT) supports several common GameCube formats, including G
 - Releases: https://github.com/LagoLunatic/GCFT/releases
 - Status: Candidate reference utility only. Do not copy it into this repository or assume compatibility without evidence.
 
+
+## Lead 4: MPQ audio containers and YDSP audio
+
+Older audio-modding discussions specifically mention WrestleMania XIX music stored in an MPQ container and describe YDSP audio extraction workflows used with Yuke's GameCube wrestling games. This is a separate lead from the MPC archive discussion; do not confuse MPQ and MPC.
+
+- References: https://www.hcs64.com/mboard/forum.php?showthread=37239 and https://www.hcs64.com/mboard/forum.php?showthread=9185
+- Status: Historical community reports; not a verified extractor/repacker for the user's exact game revision.
+- Next check: search the user's file inventory for MPQ containers and the documented YDSP signature bytes, then verify candidate offsets and lengths on read-only samples before implementing anything.
+
 ## Investigation procedure
 
 1. Work from a separate local copy of the owner's own game files.
