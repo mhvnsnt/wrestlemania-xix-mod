@@ -17,7 +17,7 @@ class ReadOnlyToolsTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "sample"
         self.root.mkdir()
-        (self.root / "sample.bin").write_bytes(b"YDSP\x00\x01test")
+        (self.root / "sample.bin").write_bytes(b"YDSP\\x00\\x01test")
         nested = self.root / "nested"
         nested.mkdir()
         (nested / "note.txt").write_text("hello", encoding="utf-8")
@@ -67,6 +67,18 @@ class ReadOnlyToolsTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("59 44 53 50", result.stdout)
         self.assertIn("YDSP", result.stdout)
+        self.assert_sources_unchanged()
+
+    def test_ydsp_scanner_reports_candidate_without_modifying_source(self) -> None:
+        # Signature at zero; candidate size is 12 bytes, stored big-endian at +8.
+        sample = self.root / "audio.bin"
+        sample.write_bytes(b"YDSPxxxx" + (12).to_bytes(4, "big") + b"DATA")
+        before = sample.read_bytes()
+        result = self.run_tool("scan_ydsp.py", str(self.root))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("audio.bin\\t0x0\\t12\\tIN_BOUNDS", result.stdout)
+        self.assertIn("candidate(s)", result.stdout)
+        self.assertEqual(sample.read_bytes(), before)
         self.assert_sources_unchanged()
 
     def test_invalid_root_fails(self) -> None:
