@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a1a2e">
+<title>WMXIX Testbed</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #1a1a2e; font-family: -apple-system, sans-serif; }
+  #canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  
+  #hud {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 8px 12px; pointer-events: none; z-index: 10;
+  }
+  #title {
+    color: #fff; font-size: 14px; font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
+  #status {
+    color: #ffd700; font-size: 11px; margin-top: 2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  }
+  #honest-note {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.7); color: #ffaa00;
+    font-size: 10px; padding: 6px 10px; z-index: 10;
+    text-align: center; pointer-events: none;
+  }
+  
+  /* Virtual joystick */
+  #joystick {
+    position: absolute; bottom: 60px; left: 20px;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.3);
+    z-index: 20; touch-action: none;
+  }
+  #stick {
+    position: absolute; left: 50%; top: 50%;
+    width: 50px; height: 50px; border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  /* Action buttons */
+  #buttons {
+    position: absolute; bottom: 60px; right: 20px;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 10px; z-index: 20;
+  }
+  .btn {
+    width: 70px; height: 70px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.15);
+    color: #fff; font-size: 11px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    touch-action: none; user-select: none;
+  }
+  .btn:active { background: rgba(255,255,255,0.35); }
+  #btn-punch { background: rgba(255,100,100,0.25); }
+  #btn-kick { background: rgba(100,255,100,0.25); }
+  #btn-grapple { background: rgba(100,100,255,0.25); }
+  #btn-block { background: rgba(255,255,100,0.25); }
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+<div id="hud">
+  <div id="title">WrestleMania XIX — Mobile Testbed</div>
+  <div id="status">Loading...</div>
+</div>
+
+<div id="joystick"><div id="stick"></div></div>
+
+<div id="buttons">
+  <div class="btn" id="btn-punch">PUNCH</div>
+  <div class="btn" id="btn-kick">KICK</div>
+  <div class="btn" id="btn-grapple">GRAPPLE</div>
+  <div class="btn" id="btn-block">BLOCK</div>
+</div>
+
+<div id="honest-note">
+  TESTBED — Heads: real WMXIX models (skinning solved). Bodies: procedural placeholders.
+  Animations: real YANM curves on real 70-bone skeleton. Full body decode in progress.
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+</script>
+</body>
+</html>
