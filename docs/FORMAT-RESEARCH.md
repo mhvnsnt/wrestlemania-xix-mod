@@ -51,3 +51,12 @@ Older audio-modding discussions specifically mention WrestleMania XIX music stor
 ## Current conclusion
 
 The most concrete game-specific lead is the MPC archive discussion. The next meaningful step requires an inventory from the owner's actual game files; without that evidence, writing a game-specific extractor would be guesswork.
+
+
+## Lead 5: YMG model/material research from related Yuke's wrestling games
+
+A community conversion thread for WrestleMania XIX and the Day of Reckoning games reports progress understanding how materials are stored in YMG files, in the context of converting models between games. This makes YMG a useful format name to look for during inventory, but it does not yet provide a verified standalone viewer, a complete format specification, or proof that all WrestleMania XIX model assets use the same structure.
+
+- Reference: https://legendsofmodding.org/threads/converting-wwe-wrestlemania-xix-and-day-of-reckoning-models-to-dor2.316/
+- Status: Community reverse-engineering lead; no YMG parser or repacker has been added.
+- Next check: identify whether the owner's own extracted files include .ymg assets, then compare multiple samples by size, signature, and repeated structure before designing a parser.
