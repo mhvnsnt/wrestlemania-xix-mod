@@ -74,6 +74,7 @@ class ReadOnlyToolsTests(unittest.TestCase):
         sample = self.root / "audio.bin"
         sample.write_bytes(b"YDSPxxxx" + (12).to_bytes(4, "big") + b"DATA")
         before = sample.read_bytes()
+        self.originals["audio.bin"] = before
         result = self.run_tool("scan_ydsp.py", str(self.root))
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("audio.bin\t0x0\t12\tIN_BOUNDS", result.stdout)
