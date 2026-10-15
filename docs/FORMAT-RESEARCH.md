@@ -60,3 +60,17 @@ A community conversion thread for WrestleMania XIX and the Day of Reckoning game
 - Reference: https://legendsofmodding.org/threads/converting-wwe-wrestlemania-xix-and-day-of-reckoning-models-to-dor2.316/
 - Status: Community reverse-engineering lead; no YMG parser or repacker has been added.
 - Next check: identify whether the owner's own extracted files include .ymg assets, then compare multiple samples by size, signature, and repeated structure before designing a parser.
+
+
+## Confirm the exact disc region/revision
+
+Public release data lists these GameCube product IDs for WrestleMania XIX:
+
+- North America: `DOL-GW9E-USA`
+- Europe: `DOL-GW9P-EUR`
+- Japan: `DOL-GW9J-JPN`
+- Korea: `DOL-GW9E-KOR`
+
+Reference: https://gamefaqs.gamespot.com/gamecube/589726-wwe-wrestlemania-xix/data
+
+These are useful reference identifiers, not proof of the user's particular image or revision. Record the ID reported by the user's own disc or dump metadata before comparing file layouts across versions.
