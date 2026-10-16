@@ -64,11 +64,11 @@ async function init() {
   // Wrestlers
   setStatus('Building wrestlers...');
   player = buildWrestler(0x4488ff, 'Player');
-  player.position.set(-1.5, 0, 0);
+  player.group.position.set(-1.5, 0, 0);
   scene.add(player.group);
-  
+
   dummy = buildWrestler(0xff4444, 'Dummy');
-  dummy.position.set(1.5, 0, 0);
+  dummy.group.position.set(1.5, 0, 0);
   dummy.group.rotation.y = Math.PI;
   scene.add(dummy.group);
   
