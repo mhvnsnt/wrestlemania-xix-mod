@@ -174,8 +174,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
 <script src="app.js"></script>
 <script>
+  // Service worker removed — it was caching stale builds and breaking updates.
+  // Unregister any existing SW so the page always loads fresh.
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
+    navigator.serviceWorker.getRegistrations().then(regs => {
+      regs.forEach(r => r.unregister());
+    });
+    if (window.caches) {
+      caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+    }
   }
 </script>
 </body>
