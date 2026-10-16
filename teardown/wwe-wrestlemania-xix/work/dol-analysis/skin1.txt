@@ -1,0 +1,51 @@
+  800abee4: stwu       r1, -0x50(r1)
+  800abee8: mflr       r0
+  800abeec: stw        r0, 0x54(r1)
+  800abef0: stw        r31, 0x4c(r1)
+  800abef4: mr         r31, r1
+  800abef8: stw        r30, 0x48(r1)
+  800abefc: mr         r30, r4
+  800abf00: stw        r29, 0x44(r1)
+  800abf04: or.        r29, r3, r3
+  800abf08: beq        0x800abf88
+  800abf0c: lis        r3, -0x7fcf
+  800abf10: addi       r0, r3, -0x504
+  800abf14: stw        r0, 8(r29)
+  800abf18: lwz        r4, 0xc(r29)
+  800abf1c: cmplwi     r4, 0
+  800abf20: beq        0x800abf48
+  800abf24: beq        0x800abf40
+  800abf28: li         r3, 0
+  800abf2c: bl         0x802769a0
+  800abf30: b          0x800abf40
+  800abf34: addi       r3, r31, 0x20
+  800abf38: bl         0x8029fb60
+  800abf3c: b          0x800abf3c
+  800abf40: li         r0, 0
+  800abf44: stw        r0, 0xc(r29)
+  800abf48: cmplwi     r29, 0
+  800abf4c: beq        0x800abf5c
+  800abf50: lis        r3, -0x7fcf
+  800abf54: addi       r0, r3, -0x6020
+  800abf58: stw        r0, 8(r29)
+  800abf5c: extsh.     r0, r30
+  800abf60: ble        0x800abf88
+  800abf64: cmplwi     r29, 0
+  800abf68: beq        0x800abf88
+  800abf6c: mr         r4, r29
+  800abf70: li         r3, 0
+  800abf74: bl         0x802769a0
+  800abf78: b          0x800abf88
+  800abf7c: addi       r3, r31, 8
+  800abf80: bl         0x8029fb60
+  800abf84: b          0x800abf84
+  800abf88: mr         r10, r31
+  800abf8c: lwz        r31, 0x4c(r31)
+  800abf90: mr         r3, r29
+  800abf94: lwz        r30, 0x48(r10)
+  800abf98: lwz        r29, 0x44(r10)
+  800abf9c: lwz        r10, 0(r1)
+  800abfa0: lwz        r0, 4(r10)
+  800abfa4: mr         r1, r10
+  800abfa8: mtlr       r0
+  800abfac: blr        
