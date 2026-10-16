@@ -1,6 +1,8 @@
 // WMXIX Mobile Testbed — Three.js app
-// Real: WMXIX head models (solved skinning), 70-bone skeleton, YANM animations
-// Procedural: Body capsules (placeholder until full body decode)
+// Real: WMXIX arena point cloud (bg/02.ymg), wrestler strip geometry
+// (000_0/001_0.ymg — real verts/faces, NOT YET ASSEMBLED: per-vertex skinning
+//  is open RE, owned by the skinning lane), 70-bone skeleton, YANM animations.
+// TEMPORARY: mat plane (until arena faces land), flat colors (until UVs/textures).
 
 let scene, camera, renderer, clock;
 let player, dummy;
@@ -63,11 +65,11 @@ async function init() {
   
   // Wrestlers
   setStatus('Building wrestlers...');
-  player = buildWrestler(0x4488ff, 'Player');
+  player = buildWrestler(0x4488ff, 'Player', 'wrestler_000.obj');
   player.group.position.set(-1.5, 0, 0);
   scene.add(player.group);
 
-  dummy = buildWrestler(0xff4444, 'Dummy');
+  dummy = buildWrestler(0xff4444, 'Dummy', 'wrestler_001.obj');
   dummy.group.position.set(1.5, 0, 0);
   dummy.group.rotation.y = Math.PI;
   scene.add(dummy.group);
@@ -88,64 +90,65 @@ function setStatus(msg) {
 }
 
 function buildArena() {
-  // Procedural wrestling ring (placeholder until arena faces decoded)
-  const ringGroup = new THREE.Group();
-  
-  // Mat
+  // REAL WMXIX arena (bg/02.ymg): 10995-vertex point cloud.
+  // Faces are NOT decoded yet (arena lane) — so the cloud renders as
+  // THREE.Points (real positions, no invented surfaces).
+  const arenaGroup = new THREE.Group();
+
+  // TEMPORARY mat plane — stand-in for wrestlers to stand on until the
+  // arena lane lands real faces. Delete when faces arrive.
   const matGeo = new THREE.BoxGeometry(8, 0.2, 8);
   const matMat = new THREE.MeshLambertMaterial({ color: 0x3366cc });
   const mat = new THREE.Mesh(matGeo, matMat);
   mat.position.y = -0.1;
-  ringGroup.add(mat);
-  
-  // Apron
-  const apronGeo = new THREE.BoxGeometry(9, 1, 9);
-  const apronMat = new THREE.MeshLambertMaterial({ color: 0x222244 });
-  const apron = new THREE.Mesh(apronGeo, apronMat);
-  apron.position.y = -0.6;
-  ringGroup.add(apron);
-  
-  // Posts
-  const postGeo = new THREE.CylinderGeometry(0.1, 0.1, 2);
-  const postMat = new THREE.MeshLambertMaterial({ color: 0x888888 });
-  for (const [x, z] of [[-4,-4],[4,-4],[-4,4],[4,4]]) {
-    const post = new THREE.Mesh(postGeo, postMat);
-    post.position.set(x, 1, z);
-    ringGroup.add(post);
-  }
-  
-  // Ropes
-  const ropeMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-  for (let h = 0.5; h <= 1.5; h += 0.5) {
-    for (const [x1,z1,x2,z2] of [[-4,-4,4,-4],[4,-4,4,4],[4,4,-4,4],[-4,4,-4,-4]]) {
-      const len = Math.sqrt((x2-x1)**2 + (z2-z1)**2);
-      const ropeGeo = new THREE.CylinderGeometry(0.03, 0.03, len);
-      const rope = new THREE.Mesh(ropeGeo, ropeMat);
-      rope.position.set((x1+x2)/2, h, (z1+z2)/2);
-      rope.rotation.z = Math.PI/2;
-      rope.rotation.y = Math.atan2(z2-z1, x2-x1);
-      ringGroup.add(rope);
-    }
-  }
-  
-  scene.add(ringGroup);
-  
-  // Ground
-  const groundGeo = new THREE.PlaneGeometry(100, 100);
-  const groundMat = new THREE.MeshLambertMaterial({ color: 0x111122 });
-  const ground = new THREE.Mesh(groundGeo, groundMat);
-  ground.rotation.x = -Math.PI/2;
-  ground.position.y = -1.1;
-  scene.add(ground);
+  mat.userData.temporaryMat = true; // TEMPORARY — remove when arena faces land
+  arenaGroup.add(mat);
+  scene.add(arenaGroup);
+
+  loadArenaPoints('arena_02.obj')
+    .then(pts => scene.add(pts))
+    .catch(e => console.warn('Arena point cloud failed:', e));
 }
 
-function buildWrestler(color, name) {
+// Real arena geometry as THREE.Points — real GameCube vertex positions,
+// rendered 1:1 with no invented faces. Interim until the arena lane lands faces.
+async function loadArenaPoints(url) {
+  const { verts } = await parseOBJ(url);
+  if (verts.length === 0) throw new Error('no vertices: ' + url);
+
+  // Center the cloud on the ring; keep ring level (y≈0) at mat height.
+  let minX = 1e9, maxX = -1e9, minZ = 1e9, maxZ = -1e9;
+  for (const v of verts) {
+    if (v[0] < minX) minX = v[0]; if (v[0] > maxX) maxX = v[0];
+    if (v[2] < minZ) minZ = v[2]; if (v[2] > maxZ) maxZ = v[2];
+  }
+  const S = 0.004; // arena units -> meters (whole arena ~60m across)
+  const cx = (minX + maxX) / 2 * S;
+  const cz = (minZ + maxZ) / 2 * S;
+
+  const pos = new Float32Array(verts.length * 3);
+  for (let i = 0; i < verts.length; i++) {
+    pos[i * 3] = verts[i][0] * S - cx;
+    pos[i * 3 + 1] = verts[i][1] * S;
+    pos[i * 3 + 2] = verts[i][2] * S - cz;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+
+  const pmat = new THREE.PointsMaterial({ color: 0x8fa3bf, size: 0.02 });
+  const pts = new THREE.Points(geo, pmat);
+  pts.frustumCulled = false; // cloud spans the whole arena
+  pts.userData.isReal = true; // REAL WMXIX geometry
+  return pts;
+}
+
+function buildWrestler(color, name, bodyUrl) {
   const group = new THREE.Group();
   const bones = {};
-  const meshes = {};
-  
-  // Build bone hierarchy from skeleton data
-  // For now, create simplified rig with major bones
+
+  // Bone hierarchy (empty Groups) — kept so the skinning lane can hook
+  // per-bone transforms in. NO procedural capsules: the body is real
+  // WMXIX strip geometry loaded below.
   const boneDefs = [
     { name: 'Bip Pelvis', pos: [0, 1.0, 0] },
     { name: 'Bip Spine', pos: [0, 0.15, 0], parent: 'Bip Pelvis' },
@@ -172,95 +175,127 @@ function buildWrestler(color, name) {
     const obj = new THREE.Group();
     obj.position.set(...def.pos);
     obj.userData.boneName = def.name;
-    obj.userData.isProcedural = true;  // Mark as procedural
-    
-    // Capsule mesh for this bone segment
-    const isLimb = def.name.includes('Arm') || def.name.includes('Forearm') || 
-                   def.name.includes('Thigh') || def.name.includes('Calf');
-    if (isLimb || def.name.includes('Spine') || def.name === 'Bip Pelvis') {
-      const geo = new THREE.CapsuleGeometry(0.08, 0.25, 4, 8);
-      const mesh = new THREE.Mesh(geo, mat);
-      // Orient along Y for vertical bones, X for horizontal
-      if (def.name.includes('Arm') || def.name.includes('Hand')) {
-        mesh.rotation.z = Math.PI/2;
-      }
-      obj.add(mesh);
-    }
-    
+
     // Head gets sphere placeholder (real head OBJ loads separately)
     if (def.name === 'Bip Head') {
       const geo = new THREE.SphereGeometry(0.15, 16, 16);
-      const mesh = new THREE.Mesh(geo, mat);
+      const mesh = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ color: color }));
       mesh.userData.isPlaceholder = true;
       obj.add(mesh);
       obj.userData.headPlaceholder = mesh;
     }
-    
+
     bones[def.name] = obj;
-    
+
     if (def.parent && bones[def.parent]) {
       bones[def.parent].add(obj);
     } else {
       group.add(obj);
     }
   }
-  
-  return { group, bones, name, color };
+
+  const wrestler = { group, bones, name, color };
+
+  // Real WMXIX body geometry, attached to Bip Pelvis for the skinning lane.
+  if (bodyUrl) {
+    loadBodyModel(wrestler, bodyUrl)
+      .catch(e => console.warn('Body load failed:', bodyUrl, e));
+  }
+
+  return wrestler;
+}
+
+// Real WMXIX wrestler strip geometry (model/wrestler/NNN_0.ymg).
+// HONEST STATE: the strips are real decoded verts/faces but NOT YET ASSEMBLED
+// into a body — per-vertex skinning is open RE owned by the skinning lane
+// (see teardown/wwe-wrestlemania-xix/YOBJ-SKINNING-NOTES.md). Shown here as
+// decoded, normalized to ~1.8m on the mat, until assembly lands. No invented
+// geometry: what you see is exactly what the extractor decoded.
+async function loadBodyModel(wrestler, url) {
+  const mesh = await loadOBJ(url, { color: wrestler.color });
+  const bb = mesh.userData.bbox;
+  const size = new THREE.Vector3();
+  bb.getSize(size);
+  const s = 1.8 / Math.max(size.x, size.y, size.z); // normalize to ~1.8m
+  const cx = (bb.min.x + bb.max.x) / 2;
+  const cz = (bb.min.z + bb.max.z) / 2;
+  mesh.scale.setScalar(s);
+  // Sit the data on the mat (group y=0); Bip Pelvis group sits at y=1.0.
+  mesh.position.set(-cx * s, -1.0 - bb.min.y * s, -cz * s);
+  mesh.userData.assemblyNote = 'UNASSEMBLED strip data — skinning lane owns assembly';
+  const pelvis = wrestler.bones['Bip Pelvis'];
+  (pelvis || wrestler.group).add(mesh);
+  return mesh;
+}
+
+// Parse a real WMXIX OBJ (v/f lines; strips may carry no normals/UVs).
+async function parseOBJ(url) {
+  const resp = await fetch(url);
+  const text = await resp.text();
+  const verts = [];
+  const faces = [];
+  for (const line of text.split('\n')) {
+    if (line.startsWith('v ')) {
+      const p = line.split(/\s+/);
+      verts.push([parseFloat(p[1]), parseFloat(p[2]), parseFloat(p[3])]);
+    } else if (line.startsWith('f ')) {
+      const idx = line.slice(2).trim().split(/\s+/)
+        .map(x => parseInt(x.split('/')[0], 10) - 1);
+      if (idx.length >= 3 && idx.every(i => Number.isInteger(i) && i >= 0 && i < verts.length)) {
+        faces.push(idx);
+      }
+    }
+  }
+  return { verts, faces };
+}
+
+// Generalized OBJ loader for real WMXIX geometry. Returns a THREE.Mesh.
+// Missing normals are computed. userData.bbox = unscaled bounding box,
+// userData.isReal marks real game geometry (never procedural).
+async function loadOBJ(url, opts = {}) {
+  const { color = 0xffffff, scale = 1, doubleSide = true } = opts;
+  const { verts, faces } = await parseOBJ(url);
+  if (verts.length === 0) throw new Error('OBJ has no vertices: ' + url);
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(verts.flat()), 3));
+
+  if (faces.length > 0) {
+    const indices = [];
+    for (const f of faces) {
+      for (let i = 1; i < f.length - 1; i++) indices.push(f[0], f[i], f[i + 1]);
+    }
+    geo.setIndex(indices);
+  }
+  geo.computeVertexNormals(); // strip OBJs carry no normals
+  geo.computeBoundingBox();
+
+  const mat = new THREE.MeshLambertMaterial({
+    color: color,
+    side: doubleSide ? THREE.DoubleSide : THREE.FrontSide
+  });
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.scale.setScalar(scale);
+  mesh.userData.isReal = true;
+  mesh.userData.bbox = geo.boundingBox.clone();
+  return mesh;
 }
 
 function loadHeadModel(wrestler, url) {
-  // Simple OBJ loader for the real skinned head
-  fetch(url)
-    .then(r => r.text())
-    .then(text => {
-      const verts = [];
-      const faces = [];
-      for (const line of text.split('\n')) {
-        if (line.startsWith('v ')) {
-          const p = line.split(/\s+/);
-          // Scale down: OBJ is in cm, we want meters
-          verts.push([parseFloat(p[1])/100, parseFloat(p[2])/100, parseFloat(p[3])/100]);
-        } else if (line.startsWith('f ')) {
-          const p = line.split(/\s+/).slice(1).map(x => parseInt(x.split('/')[0]) - 1);
-          if (p.length >= 3) faces.push(p);
-        }
-      }
-      
-      if (verts.length === 0) return;
-      
-      const geo = new THREE.BufferGeometry();
-      const posArray = new Float32Array(verts.flat());
-      geo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-      
-      // Build index from faces
-      const indices = [];
-      for (const f of faces) {
-        for (let i = 1; i < f.length - 1; i++) {
-          indices.push(f[0], f[i], f[i+1]);
-        }
-      }
-      if (indices.length > 0) {
-        geo.setIndex(indices);
-      }
-      geo.computeVertexNormals();
-      
-      const mat = new THREE.MeshLambertMaterial({ 
-        color: 0xd4a574,  // Skin tone
-        side: THREE.DoubleSide 
-      });
-      const mesh = new THREE.Mesh(geo, mat);
-      mesh.userData.isReal = true;  // Mark as REAL WMXIX geometry
-      
-      // Replace placeholder head
+  // Legacy head path — behavior preserved EXACTLY (verts/100 then scale 1.5
+  // at the head bone), now built on the generalized loadOBJ().
+  // NOTE (own-eyes verified 2026-10-15): head_000.obj's "assembled with bone
+  // transforms" vertex data does not form a head — same open skinning problem
+  // as the body strips. It renders as decoded, misplaced until lane (a) lands.
+  loadOBJ(url, { color: 0xd4a574 }) // Skin tone
+    .then(mesh => {
+      mesh.scale.setScalar(1.5 / 100); // == old verts/100 + mesh.scale 1.5
+      mesh.position.set(0, 0.1, 0);
       const headBone = wrestler.bones['Bip Head'];
       if (headBone && headBone.userData.headPlaceholder) {
         headBone.remove(headBone.userData.headPlaceholder);
       }
-      // Position head model at head bone (adjust for scale)
-      mesh.position.set(0, 0.1, 0);
-      mesh.scale.set(1.5, 1.5, 1.5);
-      headBone.add(mesh);
-      
+      if (headBone) headBone.add(mesh);
       setStatus('Real WMXIX head loaded — skinning verified');
     })
     .catch(e => console.warn('Head load failed:', e));
