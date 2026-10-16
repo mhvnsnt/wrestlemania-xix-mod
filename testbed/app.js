@@ -90,24 +90,77 @@ function setStatus(msg) {
 }
 
 function buildArena() {
-  // REAL WMXIX arena (bg/02.ymg): 10995-vertex point cloud.
-  // Faces are NOT decoded yet (arena lane) — so the cloud renders as
-  // THREE.Points (real positions, no invented surfaces).
+  // REAL WMXIX ring faces (bg/ring.ymg): teardown/wmxix/arenas/faces/ring.obj —
+  // 4 parts, 1092 faces, own-eyes verified by the arena lane (2026-10-16).
+  // HONEST STATE: these are algorithmic reconstructions from the point cloud
+  // (see teardown/wmxix/arenas/faces/FACES.md), NOT retail ground truth —
+  // true retail faces need the YMG index records (DOL-RE lane). Ring parts sit
+  // in separate local frames in the source (node transforms lost), so the
+  // transforms below are integrator estimates: scale 0.004 (arena units ->
+  // meters, same as the arena point cloud), mat top at y=0, parts eyeballed
+  // to the reconstructed mat footprint.
   const arenaGroup = new THREE.Group();
-
-  // TEMPORARY mat plane — stand-in for wrestlers to stand on until the
-  // arena lane lands real faces. Delete when faces arrive.
-  const matGeo = new THREE.BoxGeometry(8, 0.2, 8);
-  const matMat = new THREE.MeshLambertMaterial({ color: 0x3366cc });
-  const mat = new THREE.Mesh(matGeo, matMat);
-  mat.position.y = -0.1;
-  mat.userData.temporaryMat = true; // TEMPORARY — remove when arena faces land
-  arenaGroup.add(mat);
   scene.add(arenaGroup);
+
+  loadRingFaces(arenaGroup).catch(e => {
+    console.warn('Ring faces failed, falling back to temporary mat:', e);
+    // TEMPORARY mat plane — procedural stand-in, only used when the real
+    // ring faces fail to load.
+    const matGeo = new THREE.BoxGeometry(8, 0.2, 8);
+    const matMat = new THREE.MeshLambertMaterial({ color: 0x3366cc });
+    const mat = new THREE.Mesh(matGeo, matMat);
+    mat.position.y = -0.1;
+    mat.userData.temporaryMat = true; // TEMPORARY — fallback only
+    arenaGroup.add(mat);
+  });
 
   loadArenaPoints('arena_02.obj')
     .then(pts => scene.add(pts))
     .catch(e => console.warn('Arena point cloud failed:', e));
+}
+
+// Real WMXIX ring geometry as solid meshes (never procedural). Each part gets
+// the generalized loadOBJ() treatment; missing normals are computed.
+// Reconstructed mat slabs (ring_p3) do NOT cover the mat center, so a thin
+// mat-top fill plane sits just below the slab tops — documented fill, not a
+// stand-in; real mat surface pending the DOL-RE lane.
+async function loadRingFaces(group) {
+  const S = 0.004; // arena units -> meters
+  const parts = [
+    // p0: octagon trim/skirt (local z-up) — top edge at mat level, skirt below
+    { url: 'faces/ring_p0.obj', color: 0x1b2a5e,
+      rot: [-Math.PI / 2, 0, 0], pos: [0, -493.98 * S, 0] },
+    // NOTE: ring_p1 (post plate, 104x642x642 box) is NOT placed: the source
+    // YMG node transforms are lost, so there is no non-invented placement for
+    // a 2.57m plate. The file is staged in testbed/faces/ for the DOL-RE lane.
+    // p2: ropes, 2 tube loops at local y~0/120 — rotated 90 deg about Y so the
+    // loop's asymmetric axis lines up with the mat's asymmetric x-axis
+    { url: 'faces/ring_p2.obj', color: 0xc02830,
+      rot: [0, Math.PI / 2, 0], pos: [0, 112 * S, 0] },
+    // p3: mat side slabs (local z-up) — slab tops at mat level
+    { url: 'faces/ring_p3.obj', color: 0x8e99ad,
+      rot: [-Math.PI / 2, 0, 0], pos: [0, 0, 0] },
+  ];
+  for (const p of parts) {
+    const spots = p.copies || [p.pos];
+    for (const s of spots) {
+      const mesh = await loadOBJ(p.url, { color: p.color });
+      mesh.scale.setScalar(S);
+      mesh.rotation.set(p.rot[0], p.rot[1], p.rot[2]);
+      mesh.position.set(s[0], s[1] + p.pos[1], s[2]);
+      mesh.userData.ringPart = p.url;
+      group.add(mesh);
+    }
+  }
+  // Mat-top fill: reconstructed slabs skip the center, so this thin plane
+  // carries the wrestlers at y=0 until the DOL-RE lane lands the real mat.
+  const fill = new THREE.Mesh(
+    new THREE.BoxGeometry(8, 0.03, 8),
+    new THREE.MeshLambertMaterial({ color: 0x8e99ad })
+  );
+  fill.position.y = -0.015;
+  fill.userData.matTopFill = true; // documented fill, see loadRingFaces note
+  group.add(fill);
 }
 
 // Real arena geometry as THREE.Points — real GameCube vertex positions,
