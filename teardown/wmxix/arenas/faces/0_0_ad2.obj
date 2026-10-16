@@ -1,0 +1,37 @@
+# 0_0_ad2.obj — WMXIX arena mesh, faces reconstructed
+# pipeline: teardown/wmxix/tools/reconstruct_arena_faces.py (grid / loopstack / alpha-shape cascade per component)
+# components: [{"array": 0, "sub": 0, "method": "grid", "n": 25, "tris": 16, "mesh_verts": 18, "med_edge": 1110.0}, {"array": 0, "method": "points", "n": 1, "reason": "tiny fragment"}, {"array": 0, "sub": 2, "method": "points", "n": 525, "reason": "grid/loopstack/gapsplit/hull/alpha_shape all rejected \u2014 thin/noisy/sparse"}, {"array": 0, "method": "points", "n": 2, "reason": "tiny fragment"}]
+v -2884.57 -2344.43 17102.34
+v -2884.57 -1234.43 17102.34
+v -2884.57 -124.43 17102.34
+v -1774.57 -2344.43 17102.34
+v -1774.57 -1234.43 17102.34
+v -1774.57 -124.43 17102.34
+v -664.57 -2344.43 17102.34
+v -664.57 -1234.43 17102.34
+v -664.57 -124.43 17102.34
+v -664.57 985.57 17102.34
+v 445.43 -2344.43 17102.34
+v 445.43 -1234.43 17102.34
+v 445.43 -124.43 17102.34
+v 445.43 985.57 17102.34
+v 1555.43 -2344.43 17102.34
+v 1555.43 -1234.43 17102.34
+v 1555.43 -124.43 17102.34
+v 1555.43 985.57 17102.34
+f 1 4 5
+f 1 5 2
+f 2 5 6
+f 2 6 3
+f 7 11 12
+f 7 12 8
+f 8 12 13
+f 8 13 9
+f 9 13 14
+f 9 14 10
+f 11 15 16
+f 11 16 12
+f 12 16 17
+f 12 17 13
+f 13 17 18
+f 13 18 14
