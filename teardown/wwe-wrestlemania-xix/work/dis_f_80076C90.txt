@@ -1,0 +1,1377 @@
+  0x80076C90  stwu       r1, -0x210(r1)
+  0x80076C94  mflr       r0
+  0x80076C98  lis        r7, -0x7fd2
+  0x80076C9C  stw        r0, 0x214(r1)
+  0x80076CA0  stmw       r20, 0x1e0(r1)
+  0x80076CA4  addi       r27, r7, 0xa18
+  0x80076CA8  mr         r30, r3
+  0x80076CAC  mr         r22, r4
+  0x80076CB0  mr         r31, r5
+  0x80076CB4  mr         r21, r6
+  0x80076CB8  addi       r4, r27, 0x2a8
+  0x80076CBC  addi       r5, r1, 0x9c
+  0x80076CC0  li         r24, 0
+  0x80076CC4  li         r23, 0
+  0x80076CC8  lwz        r3, 0xe0(r27)
+  0x80076CCC  lwz        r8, 0xe4(r27)
+  0x80076CD0  lwz        r7, 0xe8(r27)
+  0x80076CD4  lwz        r0, 0xec(r27)
+  0x80076CD8  lwz        r20, -0x6f4c(r13)
+  0x80076CDC  stw        r3, 0x24(r1)
+  0x80076CE0  mr         r3, r20
+  0x80076CE4  stw        r8, 0x28(r1)
+  0x80076CE8  stw        r7, 0x2c(r1)
+  0x80076CEC  stw        r0, 0x30(r1)
+  0x80076CF0  bl         0x8008e8a8
+  0x80076CF4  clrlwi.    r0, r3, 0x18
+  0x80076CF8  beq        0x80076d10
+  0x80076CFC  mr         r3, r20
+  0x80076D00  addi       r4, r1, 0x9c
+  0x80076D04  bl         0x8008e49c
+  0x80076D08  mr         r20, r3
+  0x80076D0C  b          0x80076d14
+  0x80076D10  li         r20, 0
+  0x80076D14  cmplwi     r20, 0
+  0x80076D18  beq        0x80076d38
+  0x80076D1C  mr         r3, r20
+  0x80076D20  bl         0x8008e27c
+  0x80076D24  mr         r0, r3
+  0x80076D28  lwz        r3, -0x6f4c(r13)
+  0x80076D2C  mr         r23, r0
+  0x80076D30  mr         r4, r20
+  0x80076D34  bl         0x8008e37c
+  0x80076D38  stw        r22, 0(r30)
+  0x80076D3C  li         r0, 0
+  0x80076D40  cmplwi     r21, 0
+  0x80076D44  stw        r0, 0xb00(r30)
+  0x80076D48  beq        0x80076dbc
+  0x80076D4C  li         r3, 0
+  0x80076D50  li         r4, 0x50
+  0x80076D54  bl         0x802767a4
+  0x80076D58  or.        r20, r3, r3
+  0x80076D5C  bne        0x80076d88
+  0x80076D60  addi       r3, r1, 0x138
+  0x80076D64  addi       r4, r27, 0x238
+  0x80076D68  li         r5, 0x50
+  0x80076D6C  crclr      cr1eq
+  0x80076D70  bl         0x802a3ba4
+  0x80076D74  addi       r3, r27, 0x25c
+  0x80076D78  addi       r5, r1, 0x138
+  0x80076D7C  li         r4, 0x49
+  0x80076D80  crclr      cr1eq
+  0x80076D84  bl         0x80277f98
+  0x80076D88  cmplwi     r20, 0
+  0x80076D8C  beq        0x80076d9c
+  0x80076D90  mr         r3, r20
+  0x80076D94  li         r4, 4
+  0x80076D98  bl         0x8008fb08
+  0x80076D9C  stw        r20, 4(r30)
+  0x80076DA0  mr         r4, r21
+  0x80076DA4  li         r5, 1
+  0x80076DA8  lwz        r3, 4(r30)
+  0x80076DAC  bl         0x8008f524
+  0x80076DB0  lwz        r3, 0(r30)
+  0x80076DB4  lwz        r4, 4(r30)
+  0x80076DB8  bl         0x8002f7cc
+  0x80076DBC  addi       r3, r30, 0xadc
+  0x80076DC0  li         r4, 0
+  0x80076DC4  li         r5, 0x21
+  0x80076DC8  bl         0x800053e4
+  0x80076DCC  li         r0, 0
+  0x80076DD0  stw        r0, 0x5fa0(r30)
+  0x80076DD4  stw        r0, 0x5fa4(r30)
+  0x80076DD8  stw        r0, 0x5fa8(r30)
+  0x80076DDC  stw        r0, 0x5fac(r30)
+  0x80076DE0  stw        r0, 0x5fb0(r30)
+  0x80076DE4  stw        r0, 0x5fb4(r30)
+  0x80076DE8  stw        r0, 0x5fb8(r30)
+  0x80076DEC  stw        r0, 0x5fbc(r30)
+  0x80076DF0  lwz        r0, 0x546c(r31)
+  0x80076DF4  cmpwi      r0, 4
+  0x80076DF8  beq        0x80076e74
+  0x80076DFC  bge        0x80076e18
+  0x80076E00  cmpwi      r0, 2
+  0x80076E04  beq        0x80076e34
+  0x80076E08  bge        0x80077124
+  0x80076E0C  cmpwi      r0, 0
+  0x80076E10  bge        0x80076e74
+  0x80076E14  b          0x80077124
+  0x80076E18  cmpwi      r0, 6
+  0x80076E1C  beq        0x80076e74
+  0x80076E20  bge        0x80077124
+  0x80076E24  lwz        r0, 0x5fa0(r30)
+  0x80076E28  ori        r0, r0, 0x10
+  0x80076E2C  stw        r0, 0x5fa0(r30)
+  0x80076E30  b          0x80077124
+  0x80076E34  lwz        r0, 0x5fa0(r30)
+  0x80076E38  ori        r0, r0, 2
+  0x80076E3C  stw        r0, 0x5fa0(r30)
+  0x80076E40  lwz        r0, 0x5fa0(r30)
+  0x80076E44  ori        r0, r0, 4
+  0x80076E48  stw        r0, 0x5fa0(r30)
+  0x80076E4C  lwz        r0, 0x5fa0(r30)
+  0x80076E50  ori        r0, r0, 0x10
+  0x80076E54  stw        r0, 0x5fa0(r30)
+  0x80076E58  lwz        r0, 0x5fa0(r30)
+  0x80076E5C  ori        r0, r0, 0x100
+  0x80076E60  stw        r0, 0x5fa0(r30)
+  0x80076E64  lwz        r0, 0x5fa0(r30)
+  0x80076E68  ori        r0, r0, 0x20
+  0x80076E6C  stw        r0, 0x5fa0(r30)
+  0x80076E70  b          0x80077124
+  0x80076E74  lwz        r3, 0x5454(r31)
+  0x80076E78  cmpwi      r3, 1
+  0x80076E7C  bne        0x80076e94
+  0x80076E80  lwz        r0, 0x5464(r31)
+  0x80076E84  cmpwi      r0, 0xa
+  0x80076E88  beq        0x80077124
+  0x80076E8C  cmpwi      r0, 2
+  0x80076E90  beq        0x80077124
+  0x80076E94  cmpwi      r3, 1
+  0x80076E98  bne        0x80076fdc
+  0x80076E9C  li         r3, 0
+  0x80076EA0  li         r4, 0x14
+  0x80076EA4  bl         0x802767a4
+  0x80076EA8  or.        r28, r3, r3
+  0x80076EAC  bne        0x80076ed8
+  0x80076EB0  addi       r3, r1, 0xe8
+  0x80076EB4  addi       r4, r27, 0x238
+  0x80076EB8  li         r5, 0x14
+  0x80076EBC  crclr      cr1eq
+  0x80076EC0  bl         0x802a3ba4
+  0x80076EC4  addi       r3, r27, 0x25c
+  0x80076EC8  addi       r5, r1, 0xe8
+  0x80076ECC  li         r4, 0x49
+  0x80076ED0  crclr      cr1eq
+  0x80076ED4  bl         0x80277f98
+  0x80076ED8  cmplwi     r28, 0
+  0x80076EDC  mr         r21, r28
+  0x80076EE0  beq        0x80076eec
+  0x80076EE4  mr         r3, r28
+  0x80076EE8  bl         0x80095fb8
+  0x80076EEC  lwz        r26, 8(r28)
+  0x80076EF0  li         r25, 0
+  0x80076EF4  li         r20, 1
+  0x80076EF8  b          0x80076f2c
+  0x80076EFC  mr         r3, r21
+  0x80076F00  mr         r4, r25
+  0x80076F04  bl         0x80095e48
+  0x80076F08  srawi      r4, r3, 5
+  0x80076F0C  clrlwi     r0, r3, 0x1b
+  0x80076F10  slwi       r3, r4, 2
+  0x80076F14  addi       r25, r25, 1
+  0x80076F18  addi       r4, r3, 0x5fa0
+  0x80076F1C  slw        r0, r20, r0
+  0x80076F20  lwzx       r3, r30, r4
+  0x80076F24  or         r0, r3, r0
+  0x80076F28  stwx       r0, r30, r4
+  0x80076F2C  cmpw       r25, r26
+  0x80076F30  blt        0x80076efc
+  0x80076F34  lwz        r0, 0x5464(r31)
+  0x80076F38  cmpwi      r0, 5
+  0x80076F3C  bne        0x80076f4c
+  0x80076F40  lwz        r0, 0x5fa0(r30)
+  0x80076F44  ori        r0, r0, 4
+  0x80076F48  stw        r0, 0x5fa0(r30)
+  0x80076F4C  lwz        r0, 0x5464(r31)
+  0x80076F50  cmpwi      r0, 1
+  0x80076F54  bne        0x80076f88
+  0x80076F58  lwz        r0, 0x5fa0(r30)
+  0x80076F5C  ori        r0, r0, 0x10
+  0x80076F60  stw        r0, 0x5fa0(r30)
+  0x80076F64  lwz        r0, 0x5fa0(r30)
+  0x80076F68  ori        r0, r0, 0x40
+  0x80076F6C  stw        r0, 0x5fa0(r30)
+  0x80076F70  lwz        r0, 0x5fa0(r30)
+  0x80076F74  ori        r0, r0, 0x80
+  0x80076F78  stw        r0, 0x5fa0(r30)
+  0x80076F7C  lwz        r0, 0x5fa0(r30)
+  0x80076F80  ori        r0, r0, 0x100
+  0x80076F84  stw        r0, 0x5fa0(r30)
+  0x80076F88  lwz        r0, 0x5464(r31)
+  0x80076F8C  cmpwi      r0, 4
+  0x80076F90  beq        0x80076f9c
+  0x80076F94  cmpwi      r0, 6
+  0x80076F98  bne        0x80076fcc
+  0x80076F9C  lwz        r0, 0x5fa0(r30)
+  0x80076FA0  ori        r0, r0, 0x10
+  0x80076FA4  stw        r0, 0x5fa0(r30)
+  0x80076FA8  lwz        r0, 0x5fa0(r30)
+  0x80076FAC  ori        r0, r0, 4
+  0x80076FB0  stw        r0, 0x5fa0(r30)
+  0x80076FB4  lwz        r0, 0x5fa0(r30)
+  0x80076FB8  ori        r0, r0, 2
+  0x80076FBC  stw        r0, 0x5fa0(r30)
+  0x80076FC0  lwz        r0, 0x5fa0(r30)
+  0x80076FC4  ori        r0, r0, 0x20
+  0x80076FC8  stw        r0, 0x5fa0(r30)
+  0x80076FCC  mr         r3, r28
+  0x80076FD0  li         r4, 1
+  0x80076FD4  bl         0x80095f48
+  0x80076FD8  b          0x80077124
+  0x80076FDC  li         r0, 6
+  0x80076FE0  li         r3, 0
+  0x80076FE4  mtctr      r0
+  0x80076FE8  srawi      r0, r3, 5
+  0x80076FEC  clrlwi     r5, r3, 0x1b
+  0x80076FF0  slwi       r4, r0, 2
+  0x80076FF4  addi       r10, r3, 1
+  0x80076FF8  addi       r9, r4, 0x5fa0
+  0x80076FFC  li         r0, 1
+  0x80077000  lwzx       r8, r30, r9
+  0x80077004  slw        r7, r0, r5
+  0x80077008  srawi      r4, r10, 5
+  0x8007700C  clrlwi     r5, r10, 0x1b
+  0x80077010  or         r7, r8, r7
+  0x80077014  addi       r11, r3, 2
+  0x80077018  slwi       r6, r4, 2
+  0x8007701C  stwx       r7, r30, r9
+  0x80077020  addi       r9, r6, 0x5fa0
+  0x80077024  slw        r7, r0, r5
+  0x80077028  lwzx       r8, r30, r9
+  0x8007702C  srawi      r4, r11, 5
+  0x80077030  clrlwi     r5, r11, 0x1b
+  0x80077034  addi       r10, r3, 3
+  0x80077038  or         r7, r8, r7
+  0x8007703C  slwi       r6, r4, 2
+  0x80077040  stwx       r7, r30, r9
+  0x80077044  addi       r9, r6, 0x5fa0
+  0x80077048  srawi      r4, r10, 5
+  0x8007704C  clrlwi     r6, r10, 0x1b
+  0x80077050  lwzx       r8, r30, r9
+  0x80077054  slw        r7, r0, r5
+  0x80077058  slwi       r4, r4, 2
+  0x8007705C  addi       r11, r3, 4
+  0x80077060  or         r7, r8, r7
+  0x80077064  addi       r12, r3, 5
+  0x80077068  stwx       r7, r30, r9
+  0x8007706C  addi       r10, r4, 0x5fa0
+  0x80077070  srawi      r5, r11, 5
+  0x80077074  addi       r20, r3, 6
+  0x80077078  lwzx       r9, r30, r10
+  0x8007707C  srawi      r4, r12, 5
+  0x80077080  slw        r6, r0, r6
+  0x80077084  slwi       r5, r5, 2
+  0x80077088  slwi       r7, r4, 2
+  0x8007708C  clrlwi     r8, r11, 0x1b
+  0x80077090  or         r4, r9, r6
+  0x80077094  addi       r11, r5, 0x5fa0
+  0x80077098  stwx       r4, r30, r10
+  0x8007709C  slw        r9, r0, r8
+  0x800770A0  srawi      r5, r20, 5
+  0x800770A4  clrlwi     r4, r20, 0x1b
+  0x800770A8  lwzx       r10, r30, r11
+  0x800770AC  clrlwi     r6, r12, 0x1b
+  0x800770B0  addi       r8, r7, 0x5fa0
+  0x800770B4  slwi       r5, r5, 2
+  0x800770B8  or         r9, r10, r9
+  0x800770BC  slw        r7, r0, r6
+  0x800770C0  stwx       r9, r30, r11
+  0x800770C4  addi       r6, r5, 0x5fa0
+  0x800770C8  slw        r4, r0, r4
+  0x800770CC  addi       r3, r3, 7
+  0x800770D0  lwzx       r5, r30, r8
+  0x800770D4  or         r5, r5, r7
+  0x800770D8  stwx       r5, r30, r8
+  0x800770DC  lwzx       r5, r30, r6
+  0x800770E0  or         r4, r5, r4
+  0x800770E4  stwx       r4, r30, r6
+  0x800770E8  bdnz       0x80076fe8
+  0x800770EC  subfic     r4, r3, 0x2c
+  0x800770F0  mtctr      r4
+  0x800770F4  cmpwi      r3, 0x2c
+  0x800770F8  bge        0x80077124
+  0x800770FC  srawi      r5, r3, 5
+  0x80077100  clrlwi     r4, r3, 0x1b
+  0x80077104  slwi       r5, r5, 2
+  0x80077108  addi       r3, r3, 1
+  0x8007710C  addi       r6, r5, 0x5fa0
+  0x80077110  slw        r4, r0, r4
+  0x80077114  lwzx       r5, r30, r6
+  0x80077118  or         r4, r5, r4
+  0x8007711C  stwx       r4, r30, r6
+  0x80077120  bdnz       0x800770fc
+  0x80077124  lwz        r0, 0x546c(r31)
+  0x80077128  lwz        r10, 0xf0(r27)
+  0x8007712C  lwz        r9, 0xf4(r27)
+  0x80077130  cmpwi      r0, 1
+  0x80077134  lwz        r8, 0xf8(r27)
+  0x80077138  lwz        r7, 0xfc(r27)
+  0x8007713C  lwz        r6, 0x100(r27)
+  0x80077140  lwz        r5, 0x104(r27)
+  0x80077144  lwz        r4, 0x108(r27)
+  0x80077148  lwz        r3, 0x10c(r27)
+  0x8007714C  lwz        r0, 0x110(r27)
+  0x80077150  stw        r10, 0xc4(r1)
+  0x80077154  stw        r9, 0xc8(r1)
+  0x80077158  stw        r8, 0xcc(r1)
+  0x8007715C  stw        r7, 0xd0(r1)
+  0x80077160  stw        r6, 0xd4(r1)
+  0x80077164  stw        r5, 0xd8(r1)
+  0x80077168  stw        r4, 0xdc(r1)
+  0x8007716C  stw        r3, 0xe0(r1)
+  0x80077170  stw        r0, 0xe4(r1)
+  0x80077174  bne        0x80077264
+  0x80077178  lwz        r0, 0x545c(r31)
+  0x8007717C  addi       r3, r1, 0xc4
+  0x80077180  lwz        r4, 0x5460(r31)
+  0x80077184  mulli      r0, r0, 6
+  0x80077188  lwz        r5, -0x6f14(r13)
+  0x8007718C  add        r0, r4, r0
+  0x80077190  mulli      r0, r0, 0x84
+  0x80077194  add        r24, r5, r0
+  0x80077198  lwz        r4, 0x28(r24)
+  0x8007719C  lbz        r0, 0(r4)
+  0x800771A0  extsb      r0, r0
+  0x800771A4  slwi       r0, r0, 2
+  0x800771A8  lwzx       r0, r3, r0
+  0x800771AC  stw        r0, 0x5464(r31)
+  0x800771B0  lhz        r0, 0x24(r24)
+  0x800771B4  sth        r0, 0xc(r1)
+  0x800771B8  lbz        r0, 0xc(r1)
+  0x800771BC  extsb      r3, r0
+  0x800771C0  addi       r0, r3, -0x41
+  0x800771C4  cmplwi     r0, 0x33
+  0x800771C8  bgt        0x80077218
+  0x800771CC  lis        r3, -0x7fcf
+  0x800771D0  slwi       r0, r0, 2
+  0x800771D4  addi       r3, r3, -0x1e28
+  0x800771D8  lwzx       r0, r3, r0
+  0x800771DC  mtctr      r0
+  0x800771E0  bctr       
+  0x800771E4  li         r29, 0
+  0x800771E8  b          0x80077218
+  0x800771EC  li         r29, 1
+  0x800771F0  b          0x80077218
+  0x800771F4  li         r29, 2
+  0x800771F8  b          0x80077218
+  0x800771FC  li         r29, 3
+  0x80077200  b          0x80077218
+  0x80077204  li         r29, 4
+  0x80077208  b          0x80077218
+  0x8007720C  li         r29, 5
+  0x80077210  b          0x80077218
+  0x80077214  li         r29, 6
+  0x80077218  cmpwi      r29, 0
+  0x8007721C  bne        0x8007723c
+  0x80077220  lbz        r0, 0xd(r1)
+  0x80077224  li         r3, 1
+  0x80077228  stw        r3, 0x5454(r31)
+  0x8007722C  extsb      r3, r0
+  0x80077230  addi       r0, r3, -0x30
+  0x80077234  stw        r0, 0x5458(r31)
+  0x80077238  b          0x80077364
+  0x8007723C  addi       r0, r29, -1
+  0x80077240  lbz        r3, 0xd(r1)
+  0x80077244  mulli      r0, r0, 0xa
+  0x80077248  li         r4, 0
+  0x8007724C  extsb      r3, r3
+  0x80077250  stw        r4, 0x5454(r31)
+  0x80077254  add        r3, r3, r0
+  0x80077258  addi       r0, r3, -0x30
+  0x8007725C  stw        r0, 0x5458(r31)
+  0x80077260  b          0x80077364
+  0x80077264  lis        r3, -0x7fd1
+  0x80077268  addi       r3, r3, -0x1f80
+  0x8007726C  lwz        r0, 0x5454(r3)
+  0x80077270  cmpwi      r0, 0
+  0x80077274  bne        0x80077364
+  0x80077278  lwz        r0, 0x545c(r31)
+  0x8007727C  addi       r3, r1, 0xc4
+  0x80077280  lwz        r4, 0x5460(r31)
+  0x80077284  mulli      r0, r0, 6
+  0x80077288  lwz        r5, -0x6f14(r13)
+  0x8007728C  add        r0, r4, r0
+  0x80077290  mulli      r4, r0, 0xc8
+  0x80077294  addi       r6, r4, 0x1540
+  0x80077298  add        r6, r5, r6
+  0x8007729C  lwz        r4, 0x28(r6)
+  0x800772A0  lbz        r0, 0(r4)
+  0x800772A4  extsb      r0, r0
+  0x800772A8  slwi       r0, r0, 2
+  0x800772AC  lwzx       r0, r3, r0
+  0x800772B0  stw        r0, 0x5464(r31)
+  0x800772B4  lhz        r0, 0x24(r6)
+  0x800772B8  sth        r0, 8(r1)
+  0x800772BC  lbz        r0, 8(r1)
+  0x800772C0  extsb      r3, r0
+  0x800772C4  addi       r0, r3, -0x41
+  0x800772C8  cmplwi     r0, 0x33
+  0x800772CC  bgt        0x8007731c
+  0x800772D0  lis        r3, -0x7fcf
+  0x800772D4  slwi       r0, r0, 2
+  0x800772D8  addi       r3, r3, -0x1ef8
+  0x800772DC  lwzx       r0, r3, r0
+  0x800772E0  mtctr      r0
+  0x800772E4  bctr       
+  0x800772E8  li         r29, 0
+  0x800772EC  b          0x8007731c
+  0x800772F0  li         r29, 1
+  0x800772F4  b          0x8007731c
+  0x800772F8  li         r29, 2
+  0x800772FC  b          0x8007731c
+  0x80077300  li         r29, 3
+  0x80077304  b          0x8007731c
+  0x80077308  li         r29, 4
+  0x8007730C  b          0x8007731c
+  0x80077310  li         r29, 5
+  0x80077314  b          0x8007731c
+  0x80077318  li         r29, 6
+  0x8007731C  cmpwi      r29, 0
+  0x80077320  bne        0x80077340
+  0x80077324  lbz        r0, 9(r1)
+  0x80077328  li         r3, 1
+  0x8007732C  stw        r3, 0x5454(r31)
+  0x80077330  extsb      r3, r0
+  0x80077334  addi       r0, r3, -0x30
+  0x80077338  stw        r0, 0x5458(r31)
+  0x8007733C  b          0x80077364
+  0x80077340  addi       r0, r29, -1
+  0x80077344  lbz        r3, 9(r1)
+  0x80077348  mulli      r0, r0, 0xa
+  0x8007734C  li         r4, 0
+  0x80077350  extsb      r3, r3
+  0x80077354  stw        r4, 0x5454(r31)
+  0x80077358  add        r3, r3, r0
+  0x8007735C  addi       r0, r3, -0x30
+  0x80077360  stw        r0, 0x5458(r31)
+  0x80077364  lwz        r0, 0x546c(r31)
+  0x80077368  cmpwi      r0, 1
+  0x8007736C  bne        0x800773f0
+  0x80077370  lis        r3, -0x7fd1
+  0x80077374  li         r7, 1
+  0x80077378  addi       r6, r3, -0x1f80
+  0x8007737C  li         r3, 0x14
+  0x80077380  lbz        r4, 0x5470(r6)
+  0x80077384  rlwimi     r4, r7, 7, 0x18, 0x18
+  0x80077388  li         r5, 0
+  0x8007738C  stb        r3, 0x5471(r6)
+  0x80077390  clrlwi     r0, r4, 0x18
+  0x80077394  rlwimi     r0, r7, 6, 0x19, 0x19
+  0x80077398  stb        r4, 0x5470(r6)
+  0x8007739C  clrlwi     r4, r0, 0x18
+  0x800773A0  rlwimi     r4, r7, 5, 0x1a, 0x1a
+  0x800773A4  stb        r0, 0x5470(r6)
+  0x800773A8  clrlwi     r0, r4, 0x18
+  0x800773AC  rlwimi     r0, r5, 0, 0x1f, 0x1f
+  0x800773B0  stb        r4, 0x5470(r6)
+  0x800773B4  clrlwi     r4, r0, 0x18
+  0x800773B8  rlwimi     r4, r7, 3, 0x1c, 0x1c
+  0x800773BC  stb        r0, 0x5470(r6)
+  0x800773C0  clrlwi     r0, r4, 0x18
+  0x800773C4  rlwimi     r0, r7, 1, 0x1e, 0x1e
+  0x800773C8  stb        r4, 0x5470(r6)
+  0x800773CC  clrlwi     r4, r0, 0x18
+  0x800773D0  rlwimi     r4, r5, 2, 0x1d, 0x1d
+  0x800773D4  stb        r0, 0x5470(r6)
+  0x800773D8  clrlwi     r0, r4, 0x18
+  0x800773DC  stb        r4, 0x5470(r6)
+  0x800773E0  rlwimi     r0, r7, 4, 0x1b, 0x1b
+  0x800773E4  stb        r3, 0x5473(r6)
+  0x800773E8  stb        r5, 0x5474(r6)
+  0x800773EC  stb        r0, 0x5470(r6)
+  0x800773F0  lwz        r0, 0x546c(r31)
+  0x800773F4  cmpwi      r0, 5
+  0x800773F8  beq        0x80077404
+  0x800773FC  cmpwi      r0, 2
+  0x80077400  bne        0x800775a8
+  0x80077404  lbz        r0, 0x5470(r31)
+  0x80077408  li         r5, 0
+  0x8007740C  rlwimi     r0, r5, 7, 0x18, 0x18
+  0x80077410  li         r4, 1
+  0x80077414  stb        r0, 0x5470(r31)
+  0x80077418  li         r3, -1
+  0x8007741C  lbz        r0, 0x5470(r31)
+  0x80077420  rlwimi     r0, r5, 6, 0x19, 0x19
+  0x80077424  stb        r0, 0x5470(r31)
+  0x80077428  lbz        r0, 0x5470(r31)
+  0x8007742C  rlwimi     r0, r5, 5, 0x1a, 0x1a
+  0x80077430  stb        r0, 0x5470(r31)
+  0x80077434  lbz        r0, 0x5470(r31)
+  0x80077438  rlwimi     r0, r5, 4, 0x1b, 0x1b
+  0x8007743C  stb        r0, 0x5470(r31)
+  0x80077440  lbz        r0, 0x5470(r31)
+  0x80077444  rlwimi     r0, r5, 3, 0x1c, 0x1c
+  0x80077448  stb        r0, 0x5470(r31)
+  0x8007744C  lbz        r0, 0x5470(r31)
+  0x80077450  rlwimi     r0, r5, 2, 0x1d, 0x1d
+  0x80077454  stb        r0, 0x5470(r31)
+  0x80077458  lbz        r0, 0x5470(r31)
+  0x8007745C  rlwimi     r0, r5, 1, 0x1e, 0x1e
+  0x80077460  stb        r0, 0x5470(r31)
+  0x80077464  stb        r5, 0x5472(r31)
+  0x80077468  stb        r5, 0x5471(r31)
+  0x8007746C  stb        r5, 0x5473(r31)
+  0x80077470  stw        r5, 0x5464(r31)
+  0x80077474  stw        r4, 0x5454(r31)
+  0x80077478  stw        r5, 0x5458(r31)
+  0x8007747C  stb        r4, 0x5468(r31)
+  0x80077480  stw        r3, 0(r31)
+  0x80077484  stw        r3, 0xc0c(r31)
+  0x80077488  stw        r3, 0x1818(r31)
+  0x8007748C  stw        r3, 0x2424(r31)
+  0x80077490  stw        r3, 0x3030(r31)
+  0x80077494  stw        r3, 0x3c3c(r31)
+  0x80077498  stw        r3, 0x4848(r31)
+  0x8007749C  lwz        r0, 0x546c(r31)
+  0x800774A0  cmpwi      r0, 5
+  0x800774A4  bne        0x800774cc
+  0x800774A8  li         r0, 0x60
+  0x800774AC  stw        r0, 0(r31)
+  0x800774B0  stw        r0, 0xc0c(r31)
+  0x800774B4  stw        r0, 0x1818(r31)
+  0x800774B8  stw        r3, 0xc(r31)
+  0x800774BC  stw        r5, 0x10(r31)
+  0x800774C0  stw        r5, 0xc1c(r31)
+  0x800774C4  stw        r5, 0x1828(r31)
+  0x800774C8  b          0x800774f0
+  0x800774CC  li         r3, 0x5f
+  0x800774D0  li         r0, 0x27
+  0x800774D4  stw        r3, 0(r31)
+  0x800774D8  stw        r0, 0xc0c(r31)
+  0x800774DC  stw        r3, 0x1818(r31)
+  0x800774E0  stw        r5, 0xc(r31)
+  0x800774E4  stw        r5, 0x10(r31)
+  0x800774E8  stw        r5, 0xc1c(r31)
+  0x800774EC  stw        r4, 0x1828(r31)
+  0x800774F0  li         r4, -1
+  0x800774F4  li         r3, 0
+  0x800774F8  stw        r4, 0xc18(r31)
+  0x800774FC  li         r0, 1
+  0x80077500  mr         r26, r31
+  0x80077504  li         r25, 0
+  0x80077508  stw        r4, 0x1824(r31)
+  0x8007750C  stw        r3, 4(r31)
+  0x80077510  stw        r0, 0xc10(r31)
+  0x80077514  stw        r3, 0x181c(r31)
+  0x80077518  lwz        r0, 0(r26)
+  0x8007751C  addi       r3, r26, 0xbc0
+  0x80077520  lwz        r4, -0x6f1c(r13)
+  0x80077524  li         r5, 0x1b
+  0x80077528  mulli      r0, r0, 0x48
+  0x8007752C  add        r20, r4, r0
+  0x80077530  mr         r4, r20
+  0x80077534  bl         0x8029e68c
+  0x80077538  addi       r3, r26, 0xbdb
+  0x8007753C  addi       r4, r20, 0x1b
+  0x80077540  li         r5, 0xb
+  0x80077544  bl         0x8029e68c
+  0x80077548  addi       r3, r26, 0xbe6
+  0x8007754C  addi       r4, r20, 0x26
+  0x80077550  li         r5, 0x11
+  0x80077554  bl         0x8029e68c
+  0x80077558  lbz        r0, 0x37(r20)
+  0x8007755C  addi       r3, r26, 0x98c
+  0x80077560  li         r5, 0x234
+  0x80077564  stb        r0, 0xbf7(r26)
+  0x80077568  lwz        r0, 0x38(r20)
+  0x8007756C  stw        r0, 0xbf8(r26)
+  0x80077570  lwz        r0, 0x3c(r20)
+  0x80077574  stw        r0, 0xbfc(r26)
+  0x80077578  lwz        r0, 0x40(r20)
+  0x8007757C  stw        r0, 0xc00(r26)
+  0x80077580  lwz        r0, 0x44(r20)
+  0x80077584  stw        r0, 0xc04(r26)
+  0x80077588  lwz        r0, 0(r26)
+  0x8007758C  mulli      r0, r0, 0x234
+  0x80077590  add        r4, r23, r0
+  0x80077594  bl         0x800054cc
+  0x80077598  addi       r25, r25, 1
+  0x8007759C  addi       r26, r26, 0xc0c
+  0x800775A0  cmpwi      r25, 3
+  0x800775A4  blt        0x80077518
+  0x800775A8  lwz        r0, 0x546c(r31)
+  0x800775AC  cmpwi      r0, 0
+  0x800775B0  beq        0x800775bc
+  0x800775B4  cmpwi      r0, 6
+  0x800775B8  bne        0x80077768
+  0x800775BC  lwz        r0, 0x5454(r31)
+  0x800775C0  cmpwi      r0, 1
+  0x800775C4  bne        0x80077768
+  0x800775C8  lwz        r0, 0(r31)
+  0x800775CC  li         r4, 0
+  0x800775D0  cmpwi      r0, -1
+  0x800775D4  beq        0x800775e8
+  0x800775D8  lwz        r0, 4(r31)
+  0x800775DC  cmpwi      r0, -1
+  0x800775E0  bne        0x800775e8
+  0x800775E4  li         r4, 1
+  0x800775E8  lwz        r0, 0xc0c(r31)
+  0x800775EC  cmpwi      r0, -1
+  0x800775F0  beq        0x80077604
+  0x800775F4  lwz        r0, 0xc10(r31)
+  0x800775F8  cmpwi      r0, -1
+  0x800775FC  bne        0x80077604
+  0x80077600  li         r4, 1
+  0x80077604  addi       r3, r31, 0x1818
+  0x80077608  lwz        r0, 0x1818(r31)
+  0x8007760C  cmpwi      r0, -1
+  0x80077610  beq        0x80077624
+  0x80077614  lwz        r0, 4(r3)
+  0x80077618  cmpwi      r0, -1
+  0x8007761C  bne        0x80077624
+  0x80077620  li         r4, 1
+  0x80077624  lwz        r0, 0xc0c(r3)
+  0x80077628  cmpwi      r0, -1
+  0x8007762C  beq        0x80077640
+  0x80077630  lwz        r0, 0xc10(r3)
+  0x80077634  cmpwi      r0, -1
+  0x80077638  bne        0x80077640
+  0x8007763C  li         r4, 1
+  0x80077640  lwz        r0, 0x1818(r3)
+  0x80077644  cmpwi      r0, -1
+  0x80077648  beq        0x8007765c
+  0x8007764C  lwz        r0, 0x181c(r3)
+  0x80077650  cmpwi      r0, -1
+  0x80077654  bne        0x8007765c
+  0x80077658  li         r4, 1
+  0x8007765C  lwz        r0, 0x2424(r3)
+  0x80077660  cmpwi      r0, -1
+  0x80077664  beq        0x80077678
+  0x80077668  lwz        r0, 0x2428(r3)
+  0x8007766C  cmpwi      r0, -1
+  0x80077670  bne        0x80077678
+  0x80077674  li         r4, 1
+  0x80077678  lwz        r0, 0x3030(r3)
+  0x8007767C  cmpwi      r0, -1
+  0x80077680  beq        0x80077694
+  0x80077684  lwz        r0, 0x3034(r3)
+  0x80077688  cmpwi      r0, -1
+  0x8007768C  bne        0x80077694
+  0x80077690  li         r4, 1
+  0x80077694  clrlwi.    r0, r4, 0x18
+  0x80077698  bne        0x80077768
+  0x8007769C  li         r0, 7
+  0x800776A0  addi       r3, r31, 0x4848
+  0x800776A4  li         r4, 6
+  0x800776A8  mtctr      r0
+  0x800776AC  lwz        r0, 0(r3)
+  0x800776B0  cmpwi      r0, -1
+  0x800776B4  bne        0x8007775c
+  0x800776B8  mulli      r21, r4, 0xc0c
+  0x800776BC  li         r3, 0x5d
+  0x800776C0  li         r4, 0
+  0x800776C4  li         r0, -1
+  0x800776C8  add        r22, r31, r21
+  0x800776CC  li         r5, 0x1b
+  0x800776D0  stw        r3, 0(r22)
+  0x800776D4  addi       r3, r22, 0xbc0
+  0x800776D8  stw        r4, 0x10(r22)
+  0x800776DC  stw        r0, 4(r22)
+  0x800776E0  stw        r0, 0xc(r22)
+  0x800776E4  lwz        r0, 0(r22)
+  0x800776E8  lwz        r4, -0x6f1c(r13)
+  0x800776EC  mulli      r0, r0, 0x48
+  0x800776F0  add        r20, r4, r0
+  0x800776F4  mr         r4, r20
+  0x800776F8  bl         0x8029e68c
+  0x800776FC  addi       r3, r22, 0xbdb
+  0x80077700  addi       r4, r20, 0x1b
+  0x80077704  li         r5, 0xb
+  0x80077708  bl         0x8029e68c
+  0x8007770C  addi       r3, r22, 0xbe6
+  0x80077710  addi       r4, r20, 0x26
+  0x80077714  li         r5, 0x11
+  0x80077718  bl         0x8029e68c
+  0x8007771C  lbz        r0, 0x37(r20)
+  0x80077720  addis      r4, r23, 1
+  0x80077724  addi       r3, r22, 0x98c
+  0x80077728  li         r5, 0x234
+  0x8007772C  stb        r0, 0xbf7(r22)
+  0x80077730  addi       r4, r4, -0x331c
+  0x80077734  lwz        r0, 0x38(r20)
+  0x80077738  stw        r0, 0xbf8(r22)
+  0x8007773C  lwz        r0, 0x3c(r20)
+  0x80077740  stw        r0, 0xbfc(r22)
+  0x80077744  lwz        r0, 0x40(r20)
+  0x80077748  stw        r0, 0xc00(r22)
+  0x8007774C  lwz        r0, 0x44(r20)
+  0x80077750  stw        r0, 0xc04(r22)
+  0x80077754  bl         0x800054cc
+  0x80077758  b          0x80077768
+  0x8007775C  addi       r3, r3, -0xc0c
+  0x80077760  addi       r4, r4, -1
+  0x80077764  bdnz       0x800776ac
+  0x80077768  addi       r3, r30, 0xb2c
+  0x8007776C  li         r4, 0
+  0x80077770  li         r5, 0x5454
+  0x80077774  bl         0x800053e4
+  0x80077778  li         r0, -1
+  0x8007777C  lis        r3, -0x7fd1
+  0x80077780  stw        r0, 0xb2c(r30)
+  0x80077784  addi       r28, r3, -0x1f80
+  0x80077788  stw        r0, 0x1738(r30)
+  0x8007778C  stw        r0, 0x2344(r30)
+  0x80077790  stw        r0, 0x2f50(r30)
+  0x80077794  stw        r0, 0x3b5c(r30)
+  0x80077798  stw        r0, 0x4768(r30)
+  0x8007779C  stw        r0, 0x5374(r30)
+  0x800777A0  lwz        r0, 0x546c(r28)
+  0x800777A4  cmpwi      r0, 1
+  0x800777A8  bne        0x8007799c
+  0x800777AC  mr         r4, r31
+  0x800777B0  addi       r3, r30, 0xb2c
+  0x800777B4  li         r5, 0xc0c
+  0x800777B8  bl         0x800054cc
+  0x800777BC  lwz        r22, 0x3c(r24)
+  0x800777C0  li         r24, 1
+  0x800777C4  lwz        r23, 0xb2c(r30)
+  0x800777C8  li         r20, 0xc0c
+  0x800777CC  cmplwi     r22, 0
+  0x800777D0  beq        0x80077934
+  0x800777D4  li         r25, 0
+  0x800777D8  mr         r26, r25
+  0x800777DC  b          0x80077920
+  0x800777E0  lwz        r0, 4(r22)
+  0x800777E4  add        r21, r0, r26
+  0x800777E8  lbz        r0, 0(r21)
+  0x800777EC  extsb      r0, r0
+  0x800777F0  cmpwi      r0, 0x64
+  0x800777F4  bne        0x8007788c
+  0x800777F8  lbz        r0, 0x48(r21)
+  0x800777FC  extsb.     r0, r0
+  0x80077800  bne        0x80077918
+  0x80077804  lbz        r3, 2(r21)
+  0x80077808  mr         r4, r23
+  0x8007780C  mr         r5, r22
+  0x80077810  addi       r6, r1, 0x18
+  0x80077814  extsb      r3, r3
+  0x80077818  addi       r7, r1, 0x24
+  0x8007781C  bl         0x80074bec
+  0x80077820  stb        r3, 1(r21)
+  0x80077824  add        r29, r30, r20
+  0x80077828  li         r0, 0
+  0x8007782C  lwz        r3, 0x18(r1)
+  0x80077830  stb        r3, 3(r21)
+  0x80077834  lbz        r3, 1(r21)
+  0x80077838  extsb      r3, r3
+  0x8007783C  stw        r3, 0xb2c(r29)
+  0x80077840  lbz        r3, 3(r21)
+  0x80077844  extsb      r3, r3
+  0x80077848  stw        r3, 0xb3c(r29)
+  0x8007784C  lbz        r3, 0x45(r21)
+  0x80077850  extsb      r3, r3
+  0x80077854  stw        r3, 0xb30(r29)
+  0x80077858  stw        r0, 0xb34(r29)
+  0x8007785C  stw        r24, 0xb38(r29)
+  0x80077860  lwz        r0, 0xb3c(r29)
+  0x80077864  cmpwi      r0, 2
+  0x80077868  bne        0x80077878
+  0x8007786C  bl         0x802a5ccc
+  0x80077870  clrlwi     r0, r3, 0x1f
+  0x80077874  stw        r0, 0xb3c(r29)
+  0x80077878  addi       r3, r29, 0xb2c
+  0x8007787C  bl         0x80075c08
+  0x80077880  addi       r24, r24, 1
+  0x80077884  addi       r20, r20, 0xc0c
+  0x80077888  b          0x80077918
+  0x8007788C  cmpw       r0, r23
+  0x80077890  beq        0x800778ac
+  0x80077894  add        r3, r30, r20
+  0x80077898  stw        r0, 0xb2c(r3)
+  0x8007789C  lbz        r0, 2(r21)
+  0x800778A0  extsb      r0, r0
+  0x800778A4  stw        r0, 0xb3c(r3)
+  0x800778A8  b          0x800778c8
+  0x800778AC  lbz        r0, 1(r21)
+  0x800778B0  add        r3, r30, r20
+  0x800778B4  extsb      r0, r0
+  0x800778B8  stw        r0, 0xb2c(r3)
+  0x800778BC  lbz        r0, 3(r21)
+  0x800778C0  extsb      r0, r0
+  0x800778C4  stw        r0, 0xb3c(r3)
+  0x800778C8  add        r29, r30, r20
+  0x800778CC  lwz        r0, 0xb2c(r29)
+  0x800778D0  cmpwi      r0, -1
+  0x800778D4  beq        0x80077918
+  0x800778D8  lbz        r3, 0x45(r21)
+  0x800778DC  li         r0, 0
+  0x800778E0  extsb      r3, r3
+  0x800778E4  stw        r3, 0xb30(r29)
+  0x800778E8  stw        r0, 0xb34(r29)
+  0x800778EC  stw        r24, 0xb38(r29)
+  0x800778F0  lwz        r0, 0xb3c(r29)
+  0x800778F4  cmpwi      r0, 2
+  0x800778F8  bne        0x80077908
+  0x800778FC  bl         0x802a5ccc
+  0x80077900  clrlwi     r0, r3, 0x1f
+  0x80077904  stw        r0, 0xb3c(r29)
+  0x80077908  addi       r3, r29, 0xb2c
+  0x8007790C  bl         0x80075c08
+  0x80077910  addi       r24, r24, 1
+  0x80077914  addi       r20, r20, 0xc0c
+  0x80077918  addi       r26, r26, 0x4c
+  0x8007791C  addi       r25, r25, 1
+  0x80077920  lwz        r0, 0(r22)
+  0x80077924  cmpw       r25, r0
+  0x80077928  bge        0x80077934
+  0x8007792C  cmpwi      r24, 7
+  0x80077930  blt        0x800777e0
+  0x80077934  mulli      r0, r24, 0xc0c
+  0x80077938  cmpwi      r24, 7
+  0x8007793C  subfic     r3, r24, 7
+  0x80077940  li         r4, -1
+  0x80077944  add        r5, r30, r0
+  0x80077948  bge        0x800779f4
+  0x8007794C  rlwinm.    r0, r3, 0x1d, 3, 0x1f
+  0x80077950  mtctr      r0
+  0x80077954  beq        0x80077988
+  0x80077958  stw        r4, 0xb2c(r5)
+  0x8007795C  stw        r4, 0x1738(r5)
+  0x80077960  stw        r4, 0x2344(r5)
+  0x80077964  stw        r4, 0x2f50(r5)
+  0x80077968  stw        r4, 0x3b5c(r5)
+  0x8007796C  stw        r4, 0x4768(r5)
+  0x80077970  stw        r4, 0x5374(r5)
+  0x80077974  stw        r4, 0x5f80(r5)
+  0x80077978  addi       r5, r5, 0x6060
+  0x8007797C  bdnz       0x80077958
+  0x80077980  andi.      r3, r3, 7
+  0x80077984  beq        0x800779f4
+  0x80077988  mtctr      r3
+  0x8007798C  stw        r4, 0xb2c(r5)
+  0x80077990  addi       r5, r5, 0xc0c
+  0x80077994  bdnz       0x8007798c
+  0x80077998  b          0x800779f4
+  0x8007799C  lwz        r0, 0x5464(r28)
+  0x800779A0  cmpwi      r0, 0xa
+  0x800779A4  bne        0x800779dc
+  0x800779A8  mr         r3, r31
+  0x800779AC  bl         0x80074de0
+  0x800779B0  addi       r3, r30, 0xb2c
+  0x800779B4  addi       r4, r31, 0x5480
+  0x800779B8  li         r5, 0x1818
+  0x800779BC  bl         0x800054cc
+  0x800779C0  li         r0, -1
+  0x800779C4  stw        r0, 0x2344(r30)
+  0x800779C8  stw        r0, 0x2f50(r30)
+  0x800779CC  stw        r0, 0x3b5c(r30)
+  0x800779D0  stw        r0, 0x4768(r30)
+  0x800779D4  stw        r0, 0x5374(r30)
+  0x800779D8  b          0x800779f4
+  0x800779DC  mr         r4, r31
+  0x800779E0  addi       r3, r30, 0xb2c
+  0x800779E4  li         r5, 0x5454
+  0x800779E8  bl         0x800054cc
+  0x800779EC  li         r0, 0
+  0x800779F0  stb        r0, 0x5474(r31)
+  0x800779F4  lwz        r20, -0x6f4c(r13)
+  0x800779F8  addi       r4, r27, 0x2b4
+  0x800779FC  addi       r5, r1, 0x74
+  0x80077A00  mr         r3, r20
+  0x80077A04  bl         0x8008e8a8
+  0x80077A08  clrlwi.    r0, r3, 0x18
+  0x80077A0C  beq        0x80077a20
+  0x80077A10  mr         r3, r20
+  0x80077A14  addi       r4, r1, 0x74
+  0x80077A18  bl         0x8008e49c
+  0x80077A1C  b          0x80077a24
+  0x80077A20  li         r3, 0
+  0x80077A24  cmplwi     r3, 0
+  0x80077A28  mr         r29, r3
+  0x80077A2C  beq        0x80077ae4
+  0x80077A30  li         r25, 0
+  0x80077A34  mr         r26, r30
+  0x80077A38  addi       r21, r26, 0xb2c
+  0x80077A3C  lwz        r20, 0xb2c(r26)
+  0x80077A40  cmpwi      r20, 0x33
+  0x80077A44  blt        0x80077ad4
+  0x80077A48  cmpwi      r20, 0x50
+  0x80077A4C  bgt        0x80077ad4
+  0x80077A50  mr         r3, r29
+  0x80077A54  bl         0x8008e27c
+  0x80077A58  addi       r0, r20, -0x33
+  0x80077A5C  mr         r4, r3
+  0x80077A60  mulli      r0, r0, 0x870
+  0x80077A64  mr         r3, r21
+  0x80077A68  add        r4, r4, r0
+  0x80077A6C  bl         0x80075804
+  0x80077A70  mulli      r0, r20, 0x48
+  0x80077A74  lwz        r4, -0x6f1c(r13)
+  0x80077A78  addi       r3, r21, 0xbc0
+  0x80077A7C  li         r5, 0x1b
+  0x80077A80  add        r20, r4, r0
+  0x80077A84  mr         r4, r20
+  0x80077A88  bl         0x8029e68c
+  0x80077A8C  addi       r3, r21, 0xbdb
+  0x80077A90  addi       r4, r20, 0x1b
+  0x80077A94  li         r5, 0xb
+  0x80077A98  bl         0x8029e68c
+  0x80077A9C  addi       r3, r21, 0xbe6
+  0x80077AA0  addi       r4, r20, 0x26
+  0x80077AA4  li         r5, 0x11
+  0x80077AA8  bl         0x8029e68c
+  0x80077AAC  lbz        r0, 0x37(r20)
+  0x80077AB0  stb        r0, 0xbf7(r21)
+  0x80077AB4  lwz        r0, 0x38(r20)
+  0x80077AB8  stw        r0, 0xbf8(r21)
+  0x80077ABC  lwz        r0, 0x3c(r20)
+  0x80077AC0  stw        r0, 0xbfc(r21)
+  0x80077AC4  lwz        r0, 0x40(r20)
+  0x80077AC8  stw        r0, 0xc00(r21)
+  0x80077ACC  lwz        r0, 0x44(r20)
+  0x80077AD0  stw        r0, 0xc04(r21)
+  0x80077AD4  addi       r25, r25, 1
+  0x80077AD8  addi       r26, r26, 0xc0c
+  0x80077ADC  cmpwi      r25, 7
+  0x80077AE0  blt        0x80077a38
+  0x80077AE4  lwz        r3, -0x6f4c(r13)
+  0x80077AE8  mr         r4, r29
+  0x80077AEC  bl         0x8008e37c
+  0x80077AF0  lwz        r0, 0x546c(r31)
+  0x80077AF4  cmpwi      r0, 5
+  0x80077AF8  bne        0x80077b28
+  0x80077AFC  li         r0, 1
+  0x80077B00  addi       r3, r30, 0x8c
+  0x80077B04  stb        r0, 0xadc(r30)
+  0x80077B08  addi       r4, r27, 0x2c0
+  0x80077B0C  bl         0x802a6170
+  0x80077B10  li         r0, 1
+  0x80077B14  addi       r3, r30, 0x6cc
+  0x80077B18  stb        r0, 0xaf0(r30)
+  0x80077B1C  addi       r4, r27, 0x2cc
+  0x80077B20  bl         0x802a6170
+  0x80077B24  b          0x80077eb0
+  0x80077B28  li         r0, 1
+  0x80077B2C  addi       r3, r30, 0x17c
+  0x80077B30  stb        r0, 0xadf(r30)
+  0x80077B34  addi       r4, r27, 0x2e0
+  0x80077B38  bl         0x802a6170
+  0x80077B3C  lwz        r0, 0x546c(r31)
+  0x80077B40  cmpwi      r0, 2
+  0x80077B44  bne        0x80077b9c
+  0x80077B48  li         r0, 1
+  0x80077B4C  addi       r3, r30, 0x8c
+  0x80077B50  stb        r0, 0xadc(r30)
+  0x80077B54  addi       r4, r27, 0x2f4
+  0x80077B58  bl         0x802a6170
+  0x80077B5C  li         r0, 1
+  0x80077B60  addi       r3, r30, 0x6cc
+  0x80077B64  stb        r0, 0xaf0(r30)
+  0x80077B68  addi       r4, r27, 0x2cc
+  0x80077B6C  bl         0x802a6170
+  0x80077B70  li         r0, 1
+  0x80077B74  addi       r3, r30, 0x67c
+  0x80077B78  stb        r0, 0xaef(r30)
+  0x80077B7C  addi       r4, r27, 0x300
+  0x80077B80  bl         0x802a6170
+  0x80077B84  li         r0, 1
+  0x80077B88  addi       r3, r30, 0xdc
+  0x80077B8C  stb        r0, 0xadd(r30)
+  0x80077B90  addi       r4, r27, 0x314
+  0x80077B94  bl         0x802a6170
+  0x80077B98  b          0x80077eb0
+  0x80077B9C  lis        r3, -0x7fd1
+  0x80077BA0  addi       r3, r3, -0x1f80
+  0x80077BA4  lwz        r0, 0x5454(r3)
+  0x80077BA8  cmpwi      r0, 1
+  0x80077BAC  bne        0x80077d84
+  0x80077BB0  lwz        r5, 0x5458(r31)
+  0x80077BB4  addi       r3, r1, 0x14
+  0x80077BB8  addi       r4, r2, -0x6ea8
+  0x80077BBC  crclr      cr1eq
+  0x80077BC0  bl         0x802a3ba4
+  0x80077BC4  addi       r3, r1, 0x188
+  0x80077BC8  addi       r4, r27, 0x328
+  0x80077BCC  addi       r5, r1, 0x14
+  0x80077BD0  crclr      cr1eq
+  0x80077BD4  bl         0x802a3ba4
+  0x80077BD8  li         r0, 1
+  0x80077BDC  addi       r3, r30, 0x8c
+  0x80077BE0  stb        r0, 0xadc(r30)
+  0x80077BE4  addi       r4, r1, 0x188
+  0x80077BE8  bl         0x802a6170
+  0x80077BEC  addi       r3, r1, 0x188
+  0x80077BF0  addi       r4, r27, 0x334
+  0x80077BF4  addi       r5, r1, 0x14
+  0x80077BF8  crclr      cr1eq
+  0x80077BFC  bl         0x802a3ba4
+  0x80077C00  li         r0, 1
+  0x80077C04  addi       r3, r30, 0xdc
+  0x80077C08  stb        r0, 0xadd(r30)
+  0x80077C0C  addi       r4, r1, 0x188
+  0x80077C10  bl         0x802a6170
+  0x80077C14  li         r0, 1
+  0x80077C18  addi       r3, r30, 0x8fc
+  0x80077C1C  stb        r0, 0xaf7(r30)
+  0x80077C20  addi       r4, r27, 0x348
+  0x80077C24  bl         0x802a6170
+  0x80077C28  li         r0, 1
+  0x80077C2C  addi       r3, r30, 0x53c
+  0x80077C30  stb        r0, 0xaeb(r30)
+  0x80077C34  addi       r4, r27, 0x354
+  0x80077C38  bl         0x802a6170
+  0x80077C3C  li         r0, 1
+  0x80077C40  addi       r3, r30, 0x58c
+  0x80077C44  stb        r0, 0xaec(r30)
+  0x80077C48  addi       r4, r27, 0x370
+  0x80077C4C  bl         0x802a6170
+  0x80077C50  li         r0, 1
+  0x80077C54  addi       r3, r30, 0x5dc
+  0x80077C58  stb        r0, 0xaed(r30)
+  0x80077C5C  addi       r4, r27, 0x38c
+  0x80077C60  bl         0x802a6170
+  0x80077C64  li         r0, 1
+  0x80077C68  addi       r3, r30, 0x62c
+  0x80077C6C  stb        r0, 0xaee(r30)
+  0x80077C70  addi       r4, r27, 0x3a8
+  0x80077C74  bl         0x802a6170
+  0x80077C78  lwz        r0, 0x5464(r31)
+  0x80077C7C  cmpwi      r0, 2
+  0x80077C80  bne        0x80077c98
+  0x80077C84  li         r0, 1
+  0x80077C88  addi       r3, r30, 0x67c
+  0x80077C8C  stb        r0, 0xaef(r30)
+  0x80077C90  addi       r4, r27, 0x300
+  0x80077C94  bl         0x802a6170
+  0x80077C98  lwz        r0, 0x5464(r31)
+  0x80077C9C  cmpwi      r0, 3
+  0x80077CA0  bne        0x80077cb8
+  0x80077CA4  li         r0, 1
+  0x80077CA8  addi       r3, r30, 0x6cc
+  0x80077CAC  stb        r0, 0xaf0(r30)
+  0x80077CB0  addi       r4, r27, 0x2cc
+  0x80077CB4  bl         0x802a6170
+  0x80077CB8  bl         0x802a5ccc
+  0x80077CBC  mr         r29, r3
+  0x80077CC0  mr         r26, r30
+  0x80077CC4  li         r25, 0
+  0x80077CC8  lwz        r5, 0xb2c(r26)
+  0x80077CCC  cmpwi      r5, -1
+  0x80077CD0  beq        0x80077d5c
+  0x80077CD4  lwz        r0, 0xb30(r26)
+  0x80077CD8  cmpwi      r0, -1
+  0x80077CDC  beq        0x80077d5c
+  0x80077CE0  cmpwi      r5, 0
+  0x80077CE4  beq        0x80077cf8
+  0x80077CE8  cmpwi      r5, 0x33
+  0x80077CEC  blt        0x80077d28
+  0x80077CF0  cmpwi      r5, 0x50
+  0x80077CF4  bgt        0x80077d28
+  0x80077CF8  add        r5, r29, r25
+  0x80077CFC  addi       r3, r1, 0x188
+  0x80077D00  slwi       r0, r5, 0x1e
+  0x80077D04  addi       r4, r27, 0x3c4
+  0x80077D08  srwi       r5, r5, 0x1f
+  0x80077D0C  subf       r0, r5, r0
+  0x80077D10  rotlwi     r0, r0, 2
+  0x80077D14  add        r5, r0, r5
+  0x80077D18  addi       r5, r5, 1
+  0x80077D1C  crclr      cr1eq
+  0x80077D20  bl         0x802a3ba4
+  0x80077D24  b          0x80077d38
+  0x80077D28  addi       r3, r1, 0x188
+  0x80077D2C  addi       r4, r27, 0x3dc
+  0x80077D30  crclr      cr1eq
+  0x80077D34  bl         0x802a3ba4
+  0x80077D38  addi       r6, r25, 0xa
+  0x80077D3C  li         r5, 1
+  0x80077D40  mulli      r3, r6, 0x50
+  0x80077D44  addi       r4, r1, 0x188
+  0x80077D48  addi       r0, r6, 0xadc
+  0x80077D4C  stbx       r5, r30, r0
+  0x80077D50  addi       r3, r3, 0x8c
+  0x80077D54  add        r3, r30, r3
+  0x80077D58  bl         0x802a6170
+  0x80077D5C  addi       r25, r25, 1
+  0x80077D60  addi       r26, r26, 0xc0c
+  0x80077D64  cmpwi      r25, 4
+  0x80077D68  blt        0x80077cc8
+  0x80077D6C  li         r0, 1
+  0x80077D70  addi       r3, r30, 0x4ec
+  0x80077D74  stb        r0, 0xaea(r30)
+  0x80077D78  addi       r4, r27, 0x3f4
+  0x80077D7C  bl         0x802a6170
+  0x80077D80  b          0x80077eb0
+  0x80077D84  lis        r3, 0x6666
+  0x80077D88  lwz        r9, 0x5458(r31)
+  0x80077D8C  addi       r0, r3, 0x6667
+  0x80077D90  lhz        r4, -0x6f04(r2)
+  0x80077D94  mulhw      r3, r0, r9
+  0x80077D98  lwz        r5, -0x6f08(r2)
+  0x80077D9C  lbz        r6, -0x6f02(r2)
+  0x80077DA0  li         r0, 0
+  0x80077DA4  sth        r4, 0x20(r1)
+  0x80077DA8  addi       r7, r1, 0x1c
+  0x80077DAC  srawi      r8, r3, 2
+  0x80077DB0  stw        r5, 0x1c(r1)
+  0x80077DB4  srawi      r4, r3, 2
+  0x80077DB8  addi       r3, r1, 0x188
+  0x80077DBC  srwi       r5, r4, 0x1f
+  0x80077DC0  stb        r6, 0x22(r1)
+  0x80077DC4  add        r4, r4, r5
+  0x80077DC8  srwi       r10, r8, 0x1f
+  0x80077DCC  mulli      r6, r4, 0xa
+  0x80077DD0  stb        r0, 0x12(r1)
+  0x80077DD4  add        r4, r8, r10
+  0x80077DD8  lbzx       r7, r7, r4
+  0x80077DDC  addi       r5, r1, 0x10
+  0x80077DE0  subf       r6, r6, r9
+  0x80077DE4  addi       r0, r6, 0x30
+  0x80077DE8  stb        r7, 0x10(r1)
+  0x80077DEC  addi       r4, r27, 0x328
+  0x80077DF0  stb        r0, 0x11(r1)
+  0x80077DF4  crclr      cr1eq
+  0x80077DF8  bl         0x802a3ba4
+  0x80077DFC  li         r0, 1
+  0x80077E00  addi       r3, r30, 0x8c
+  0x80077E04  stb        r0, 0xadc(r30)
+  0x80077E08  addi       r4, r1, 0x188
+  0x80077E0C  bl         0x802a6170
+  0x80077E10  lwz        r0, 0x546c(r31)
+  0x80077E14  cmpwi      r0, 1
+  0x80077E18  bne        0x80077e38
+  0x80077E1C  lwz        r5, 0x545c(r31)
+  0x80077E20  addi       r3, r1, 0x188
+  0x80077E24  lwz        r6, 0x5460(r31)
+  0x80077E28  addi       r4, r27, 0x410
+  0x80077E2C  crclr      cr1eq
+  0x80077E30  bl         0x802a3ba4
+  0x80077E34  b          0x80077e4c
+  0x80077E38  addi       r3, r1, 0x188
+  0x80077E3C  addi       r4, r27, 0x334
+  0x80077E40  addi       r5, r1, 0x10
+  0x80077E44  crclr      cr1eq
+  0x80077E48  bl         0x802a3ba4
+  0x80077E4C  li         r0, 1
+  0x80077E50  addi       r3, r30, 0xdc
+  0x80077E54  stb        r0, 0xadd(r30)
+  0x80077E58  addi       r4, r1, 0x188
+  0x80077E5C  bl         0x802a6170
+  0x80077E60  lwz        r0, 0x546c(r31)
+  0x80077E64  cmpwi      r0, 1
+  0x80077E68  bne        0x80077e88
+  0x80077E6C  lwz        r5, 0x545c(r31)
+  0x80077E70  addi       r3, r1, 0x188
+  0x80077E74  lwz        r6, 0x5460(r31)
+  0x80077E78  addi       r4, r27, 0x424
+  0x80077E7C  crclr      cr1eq
+  0x80077E80  bl         0x802a3ba4
+  0x80077E84  b          0x80077e9c
+  0x80077E88  addi       r3, r1, 0x188
+  0x80077E8C  addi       r4, r27, 0x43c
+  0x80077E90  addi       r5, r1, 0x10
+  0x80077E94  crclr      cr1eq
+  0x80077E98  bl         0x802a3ba4
+  0x80077E9C  li         r0, 1
+  0x80077EA0  addi       r3, r30, 0x12c
+  0x80077EA4  stb        r0, 0xade(r30)
+  0x80077EA8  addi       r4, r1, 0x188
+  0x80077EAC  bl         0x802a6170
+  0x80077EB0  lwz        r0, 0x546c(r31)
+  0x80077EB4  cmpwi      r0, 5
+  0x80077EB8  beq        0x8007811c
+  0x80077EBC  li         r0, 1
+  0x80077EC0  addi       r3, r30, 0x1cc
+  0x80077EC4  stb        r0, 0xae0(r30)
+  0x80077EC8  addi       r4, r27, 0x454
+  0x80077ECC  bl         0x802a6170
+  0x80077ED0  lis        r3, -0x7fd1
+  0x80077ED4  addi       r3, r3, -0x1f80
+  0x80077ED8  lbz        r0, 0x5470(r3)
+  0x80077EDC  rlwinm.    r0, r0, 0x1f, 0x1f, 0x1f
+  0x80077EE0  bne        0x80077f0c
+  0x80077EE4  li         r0, 1
+  0x80077EE8  addi       r3, r30, 0x21c
+  0x80077EEC  stb        r0, 0xae1(r30)
+  0x80077EF0  addi       r4, r27, 0x468
+  0x80077EF4  bl         0x802a6170
+  0x80077EF8  li         r0, 1
+  0x80077EFC  addi       r3, r30, 0x26c
+  0x80077F00  stb        r0, 0xae2(r30)
+  0x80077F04  addi       r4, r27, 0x47c
+  0x80077F08  bl         0x802a6170
+  0x80077F0C  lis        r3, -0x7fd1
+  0x80077F10  addi       r3, r3, -0x1f80
+  0x80077F14  lwz        r0, 0x5454(r3)
+  0x80077F18  cmpwi      r0, 1
+  0x80077F1C  bne        0x80078144
+  0x80077F20  addi       r3, r1, 0x54
+  0x80077F24  li         r21, 0
+  0x80077F28  li         r4, 0
+  0x80077F2C  li         r5, 0x20
+  0x80077F30  bl         0x800053e4
+  0x80077F34  addi       r3, r1, 0x34
+  0x80077F38  li         r4, 0
+  0x80077F3C  li         r5, 0x20
+  0x80077F40  bl         0x800053e4
+  0x80077F44  li         r0, 2
+  0x80077F48  mr         r6, r31
+  0x80077F4C  addi       r4, r1, 0x54
+  0x80077F50  li         r7, 0
+  0x80077F54  mtctr      r0
+  0x80077F58  lwz        r0, 0(r6)
+  0x80077F5C  cmpwi      r0, -1
+  0x80077F60  beq        0x80077f88
+  0x80077F64  lwz        r0, 4(r6)
+  0x80077F68  cmpwi      r0, 0
+  0x80077F6C  blt        0x80077f88
+  0x80077F70  cmpwi      r0, 8
+  0x80077F74  bge        0x80077f88
+  0x80077F78  slwi       r5, r0, 2
+  0x80077F7C  lwzx       r3, r4, r5
+  0x80077F80  addi       r0, r3, 1
+  0x80077F84  stwx       r0, r4, r5
+  0x80077F88  lwz        r0, 0xc0c(r6)
+  0x80077F8C  cmpwi      r0, -1
+  0x80077F90  beq        0x80077fb8
+  0x80077F94  lwz        r0, 0xc10(r6)
+  0x80077F98  cmpwi      r0, 0
+  0x80077F9C  blt        0x80077fb8
+  0x80077FA0  cmpwi      r0, 8
+  0x80077FA4  bge        0x80077fb8
+  0x80077FA8  slwi       r5, r0, 2
+  0x80077FAC  lwzx       r3, r4, r5
+  0x80077FB0  addi       r0, r3, 1
+  0x80077FB4  stwx       r0, r4, r5
+  0x80077FB8  lwz        r0, 0x1818(r6)
+  0x80077FBC  cmpwi      r0, -1
+  0x80077FC0  beq        0x80077fe8
+  0x80077FC4  lwz        r0, 0x181c(r6)
+  0x80077FC8  cmpwi      r0, 0
+  0x80077FCC  blt        0x80077fe8
+  0x80077FD0  cmpwi      r0, 8
+  0x80077FD4  bge        0x80077fe8
+  0x80077FD8  slwi       r5, r0, 2
+  0x80077FDC  lwzx       r3, r4, r5
+  0x80077FE0  addi       r0, r3, 1
+  0x80077FE4  stwx       r0, r4, r5
+  0x80077FE8  lwz        r0, 0x2424(r6)
+  0x80077FEC  cmpwi      r0, -1
+  0x80077FF0  beq        0x80078018
+  0x80077FF4  lwz        r0, 0x2428(r6)
+  0x80077FF8  cmpwi      r0, 0
+  0x80077FFC  blt        0x80078018
+  0x80078000  cmpwi      r0, 8
+  0x80078004  bge        0x80078018
+  0x80078008  slwi       r5, r0, 2
+  0x8007800C  lwzx       r3, r4, r5
+  0x80078010  addi       r0, r3, 1
+  0x80078014  stwx       r0, r4, r5
+  0x80078018  addi       r6, r6, 0x3030
+  0x8007801C  addi       r7, r7, 3
+  0x80078020  bdnz       0x80077f58
+  0x80078024  li         r0, 2
+  0x80078028  mr         r4, r31
+  0x8007802C  addi       r3, r1, 0x54
+  0x80078030  li         r5, 0
+  0x80078034  mtctr      r0
+  0x80078038  lwz        r0, 4(r4)
+  0x8007803C  slwi       r0, r0, 2
+  0x80078040  lwzx       r0, r3, r0
+  0x80078044  cmpwi      r0, 1
+  0x80078048  bne        0x80078054
+  0x8007804C  ori        r21, r21, 1
+  0x80078050  b          0x8007805c
+  0x80078054  ble        0x8007805c
+  0x80078058  ori        r21, r21, 2
+  0x8007805C  lwz        r0, 0xc10(r4)
+  0x80078060  slwi       r0, r0, 2
+  0x80078064  lwzx       r0, r3, r0
+  0x80078068  cmpwi      r0, 1
+  0x8007806C  bne        0x80078078
+  0x80078070  ori        r21, r21, 1
+  0x80078074  b          0x80078080
+  0x80078078  ble        0x80078080
+  0x8007807C  ori        r21, r21, 2
+  0x80078080  lwz        r0, 0x181c(r4)
+  0x80078084  slwi       r0, r0, 2
+  0x80078088  lwzx       r0, r3, r0
+  0x8007808C  cmpwi      r0, 1
+  0x80078090  bne        0x8007809c
+  0x80078094  ori        r21, r21, 1
+  0x80078098  b          0x800780a4
+  0x8007809C  ble        0x800780a4
+  0x800780A0  ori        r21, r21, 2
+  0x800780A4  lwz        r0, 0x2428(r4)
+  0x800780A8  slwi       r0, r0, 2
+  0x800780AC  lwzx       r0, r3, r0
+  0x800780B0  cmpwi      r0, 1
+  0x800780B4  bne        0x800780c0
+  0x800780B8  ori        r21, r21, 1
+  0x800780BC  b          0x800780c8
+  0x800780C0  ble        0x800780c8
+  0x800780C4  ori        r21, r21, 2
+  0x800780C8  addi       r4, r4, 0x3030
+  0x800780CC  addi       r5, r5, 3
+  0x800780D0  bdnz       0x80078038
+  0x800780D4  rlwinm.    r0, r21, 0, 0x1e, 0x1e
+  0x800780D8  bne        0x800780f0
+  0x800780DC  lis        r3, -0x7fd1
+  0x800780E0  addi       r3, r3, -0x1f80
+  0x800780E4  lwz        r0, 0x5464(r3)
+  0x800780E8  cmpwi      r0, 2
+  0x800780EC  bne        0x80078144
+  0x800780F0  li         r0, 1
+  0x800780F4  addi       r3, r30, 0x30c
+  0x800780F8  stb        r0, 0xae4(r30)
+  0x800780FC  addi       r4, r27, 0x490
+  0x80078100  bl         0x802a6170
+  0x80078104  li         r0, 1
+  0x80078108  addi       r3, r30, 0x35c
+  0x8007810C  stb        r0, 0xae5(r30)
+  0x80078110  addi       r4, r27, 0x4a8
+  0x80078114  bl         0x802a6170
+  0x80078118  b          0x80078144
+  0x8007811C  li         r0, 1
+  0x80078120  addi       r3, r30, 0x1cc
+  0x80078124  stb        r0, 0xae0(r30)
+  0x80078128  addi       r4, r27, 0x4c0
+  0x8007812C  bl         0x802a6170
+  0x80078130  li         r0, 1
+  0x80078134  addi       r3, r30, 0x2bc
+  0x80078138  stb        r0, 0xae3(r30)
+  0x8007813C  addi       r4, r27, 0x4d0
+  0x80078140  bl         0x802a6170
+  0x80078144  lwz        r0, 0x546c(r31)
+  0x80078148  cmpwi      r0, 5
+  0x8007814C  beq        0x80078200
+  0x80078150  cmpwi      r0, 1
+  0x80078154  bne        0x80078170
+  0x80078158  li         r0, 1
+  0x8007815C  addi       r3, r30, 0x71c
+  0x80078160  stb        r0, 0xaf1(r30)
+  0x80078164  addi       r4, r27, 0x4e0
+  0x80078168  bl         0x802a6170
+  0x8007816C  b          0x80078184
+  0x80078170  li         r0, 1
+  0x80078174  addi       r3, r30, 0x71c
+  0x80078178  stb        r0, 0xaf1(r30)
+  0x8007817C  addi       r4, r27, 0x4f4
+  0x80078180  bl         0x802a6170
+  0x80078184  li         r0, 1
+  0x80078188  addi       r3, r30, 0x76c
+  0x8007818C  stb        r0, 0xaf2(r30)
+  0x80078190  addi       r4, r27, 0x504
+  0x80078194  bl         0x802a6170
+  0x80078198  lwz        r0, 0x546c(r31)
+  0x8007819C  cmpwi      r0, 1
+  0x800781A0  bne        0x800781b8
+  0x800781A4  li         r0, 1
+  0x800781A8  addi       r3, r30, 0x7bc
+  0x800781AC  stb        r0, 0xaf3(r30)
+  0x800781B0  addi       r4, r27, 0x514
+  0x800781B4  bl         0x802a6170
+  0x800781B8  li         r0, 1
+  0x800781BC  addi       r3, r30, 0x80c
+  0x800781C0  stb        r0, 0xaf4(r30)
+  0x800781C4  addi       r4, r27, 0x528
+  0x800781C8  bl         0x802a6170
+  0x800781CC  li         r0, 1
+  0x800781D0  addi       r3, r30, 0x85c
+  0x800781D4  stb        r0, 0xaf5(r30)
+  0x800781D8  addi       r4, r27, 0x538
+  0x800781DC  bl         0x802a6170
+  0x800781E0  lwz        r0, 0x546c(r28)
+  0x800781E4  cmpwi      r0, 1
+  0x800781E8  bne        0x80078200
+  0x800781EC  li         r0, 1
+  0x800781F0  addi       r3, r30, 0x8ac
+  0x800781F4  stb        r0, 0xaf6(r30)
+  0x800781F8  addi       r4, r27, 0x54c
+  0x800781FC  bl         0x802a6170
+  0x80078200  lmw        r20, 0x1e0(r1)
+  0x80078204  lwz        r0, 0x214(r1)
+  0x80078208  mtlr       r0
+  0x8007820C  addi       r1, r1, 0x210
+  0x80078210  blr        
