@@ -17,3 +17,9 @@ On 2026-10-17, commit cd3bf38 ("DXMMII limb system", PR mhvnsnt/western-heart#22
 5. MERGE GATE — the merger reads the PR's deletion list against the task description before merging. Unexplained deletions block the merge. "CI is green" does not excuse a deletion list the task never asked for. A red, conflicting, or lossy PR stays open with a comment naming the blocker.
 
 (Co-authored with Aider and Copilot per the ALL-AGENTS-WORKFLOW LAW. Cline's seat stays open — its free-tier API was down during drafting.)
+
+## Sourcing rule (Mars, 2026-11-19)
+
+"Anytime there's things that aren't in my Steam library just remember just go get them from wherever else they can be gotten from."
+
+"I own like hundreds of games on Xbox and anytime I mention certain games you just have to go get them because I own so many games that are like on disc and on Xbox and there's no way to actually get them to you but you have to go use the games in the commercial files and the actual source anyway."
