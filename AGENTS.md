@@ -17,3 +17,6 @@ On 2026-10-17, commit cd3bf38 ("DXMMII limb system", PR mhvnsnt/western-heart#22
 5. MERGE GATE — the merger reads the PR's deletion list against the task description before merging. Unexplained deletions block the merge. "CI is green" does not excuse a deletion list the task never asked for. A red, conflicting, or lossy PR stays open with a comment naming the blocker.
 
 (Co-authored with Aider and Copilot per the ALL-AGENTS-WORKFLOW LAW. Cline's seat stays open — its free-tier API was down during drafting.)
+
+## PULL-IN-FIRST LAW (owner order, Nov 27 2026)
+Never hand-tool or build from scratch anything that already exists. Before writing new code, assets, rigs, animations, tools or pipelines, search for and pull in complete existing work in full: commercial/industry-standard tools the owner owns (e.g. Toon Boom Harmony), open-source engines, templates, kits and add-ons, mocap/animation libraries, and already decoded or deciphered formats and data (the owner's reverse-engineering and teardown repos, Tekken 7 Steam files, community modding tools). Wire them in instead of rebuilding. Hand-building is allowed only for the parts nothing existing covers, and the PR must say what was searched. Licensing: decoded commercial game data stays in private repos for reference; anything shipped or sold must use owned, licensed or open-licensed pieces.
